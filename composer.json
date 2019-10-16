@@ -1,0 +1,37 @@
+{
+    "name": "exchange/exchange",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Александр Громский",
+            "email": "rskrydge@itlab-studio.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type":"package",
+            "package": {
+                "name": "exchange/exchange",
+                "version":"master",
+                "source": {
+                    "url": "https://github.com/321Olexandr123/exchange.git",
+                    "type": "git",
+                    "reference":"master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "ext-json": "*"
+    },
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "Exchange\\": "src/Exchange"
+        }
+    }
+}
