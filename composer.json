@@ -14,7 +14,7 @@
                 "name": "exchange/exchange",
                 "version":"master",
                 "source": {
-                    "url": "https://github.com/321Olexandr123/exchange.git",
+                    "url": "https://github.com/321Olexandr123/Lib.git",
                     "type": "git",
                     "reference":"master"
                 }
