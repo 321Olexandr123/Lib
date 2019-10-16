@@ -42,17 +42,17 @@ class Exchange implements ExchangeBuilder
         return $this;
     }
 
-    public function course()
+    private function course()
     {
         return $this->content[$this->query->from . ' to ' . $this->query->to]['course'];
     }
 
-    public function selling()
+    private function selling()
     {
         return $this->content[$this->query->from . ' to ' . $this->query->to]['selling'];
     }
 
-    public function purchase()
+    private function purchase()
     {
         return $this->content[$this->query->from . ' to ' . $this->query->to]['purchase'];
     }
