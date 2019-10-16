@@ -1,5 +1,6 @@
 <?php
 
+namespace Exchange\State\Concrete;
 
 use Exchange\State\State;
 use Exchange\Utils\ExchangeObjectInterface;
