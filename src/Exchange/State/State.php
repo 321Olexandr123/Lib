@@ -9,18 +9,6 @@ use Exchange\Utils\ExchangeObjectInterface;
 
 abstract class State
 {
-    /** @var Courses */
-    protected $courses;
-
-    /**
-     * State constructor.
-     * @param $courses
-     */
-    public function __construct(Courses $courses)
-    {
-        $this->courses = $courses;
-    }
-
     /**
      * @param ExchangeObjectInterface|null $in
      * @param ExchangeObjectInterface|null $out

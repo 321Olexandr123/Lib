@@ -16,21 +16,21 @@ class ExchangeCourses extends Courses
     public static function selling()
     {
         $instance = new self();
-        $instance->setState(new Selling($instance));
+        $instance->setState(new Selling());
         return $instance;
     }
 
     public static function purchase()
     {
         $instance = new self();
-        $instance->setState(new Purchase($instance));
+        $instance->setState(new Purchase());
         return $instance;
     }
 
     public static function course()
     {
         $instance = new self();
-        $instance->setState(new Course($instance));
+        $instance->setState(new Course());
         return $instance;
     }
 
