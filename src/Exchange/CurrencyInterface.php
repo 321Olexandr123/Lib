@@ -1,9 +1,9 @@
 <?php
 namespace Exchange;
 
-use Exchange\Utils\ExchangeObject;
+use Exchange\Utils\ExchangeObjectInterface;
 
-abstract class Currency implements ExchangeObject
+abstract class Currency implements ExchangeObjectInterface
 {
     protected $content;
 

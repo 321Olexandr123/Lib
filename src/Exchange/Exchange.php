@@ -3,7 +3,8 @@
 namespace Exchange;
 
 use Exchange\Utils\ExchangeBuilder;
-use Exchange\Utils\ExchangeObject;
+
+use Exchange\Utils\ExchangeObjectInterface;
 use Exchange\Utils\PaymentSystem;
 
 class Exchange implements ExchangeBuilder
@@ -16,14 +17,14 @@ class Exchange implements ExchangeBuilder
         $this->query = new \stdClass;
     }
 
-    public function in(ExchangeObject $exchangeObject)
+    public function in(ExchangeObjectInterface $exchangeObject)
     {
         $this->reset();
         $this->query->in = $exchangeObject;
         return $this;
     }
 
-    public function out(ExchangeObject $exchangeObject)
+    public function out(ExchangeObjectInterface $exchangeObject)
     {
         $this->query->out = $exchangeObject;
         return $this;
@@ -37,7 +38,6 @@ class Exchange implements ExchangeBuilder
 
     public function payment(PaymentSystem $paymentSystem)
     {
-        $test = 1;
         $this->query->payment = $paymentSystem;
         return $this;
     }

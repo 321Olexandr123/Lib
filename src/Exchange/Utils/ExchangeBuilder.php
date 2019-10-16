@@ -5,9 +5,9 @@ use Exchange\Courses;
 
 interface ExchangeBuilder
 {
-    public function in(ExchangeObject $exchangeObject);
+    public function in(ExchangeObjectInterface $exchangeObject);
 
-    public function out(ExchangeObject $exchangeObject);
+    public function out(ExchangeObjectInterface $exchangeObject);
 
     public function context(Courses $courses);
 

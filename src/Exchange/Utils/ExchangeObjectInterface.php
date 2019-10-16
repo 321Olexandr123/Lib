@@ -1,7 +1,7 @@
 <?php
 namespace Exchange\Utils;
 
-interface ExchangeObject
+interface ExchangeObjectInterface
 {
     function abbreviation();
 
