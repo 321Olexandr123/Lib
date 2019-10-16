@@ -13,6 +13,7 @@ use Exchange\Utils\ExchangeObjectInterface;
 class ExchangeCourses extends Courses
 {
 
+
     public static function selling()
     {
         $instance = new self();
