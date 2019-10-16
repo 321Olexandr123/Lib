@@ -2,6 +2,9 @@
 
 namespace Exchange;
 
+use Exchange\State\Concrete\Course;
+use Exchange\State\Concrete\Purchase;
+use Exchange\State\Concrete\Selling;
 use Exchange\Utils\ExchangeBuilder;
 
 use Exchange\Utils\ExchangeObjectInterface;
@@ -30,9 +33,9 @@ class Exchange implements ExchangeBuilder
         return $this;
     }
 
-    public function context(Courses $courses)
+    public function courses(Courses $courses)
     {
-        $this->query->course = $courses;
+        $this->query->courses = $courses;
         return $this;
     }
 
@@ -42,30 +45,13 @@ class Exchange implements ExchangeBuilder
         return $this;
     }
 
-    private function course()
+    public function getResult()
     {
-        return $this->content[$this->query->from . ' to ' . $this->query->to]['course'];
-    }
+        $context = $this->query->courses;
 
-    private function selling()
-    {
-        return $this->content[$this->query->from . ' to ' . $this->query->to]['selling'];
-    }
-
-    private function purchase()
-    {
-        return $this->content[$this->query->from . ' to ' . $this->query->to]['purchase'];
-    }
-
-    public function getResult(): array
-    {
-        $webSite = 'http://rate.crpt.trading/currency-courses-by-abbr/get/cZX4PZrevVP9IG3cpVUeLIomU2XsCLhg_gkwhYcFhfk?currency_pair=' . $this->query->from . '_' . $this->query->to;
-        $content = file_get_contents($webSite);
-        $this->content = json_decode($content, true);
-
-        $this->query->course = $this->course();
-        $this->query->selling = $this->selling();
-        $this->query->purchase = $this->purchase();
+        $this->query->course = $context->setState(new Course())->handle($this->query->in, $this->query->out);
+        $this->query->selling = $context->setState(new Selling())->handle($this->query->in, $this->query->out);
+        $this->query->purchase = $context->setState(new Purchase())->handle($this->query->in, $this->query->out);
 
         return $this->query;
     }
