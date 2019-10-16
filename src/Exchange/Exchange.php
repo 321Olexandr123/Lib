@@ -37,6 +37,7 @@ class Exchange implements ExchangeBuilder
 
     public function payment(PaymentSystem $paymentSystem)
     {
+        $test = 1;
         $this->query->payment = $paymentSystem;
         return $this;
     }
