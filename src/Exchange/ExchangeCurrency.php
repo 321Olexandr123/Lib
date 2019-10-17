@@ -5,6 +5,7 @@ namespace Exchange;
 use Exchange\State\Concrete\Course;
 use Exchange\State\Concrete\Purchase;
 use Exchange\State\Concrete\Selling;
+use Exchange\State\State;
 use Exchange\Utils\ExchangeBuilder;
 
 use Exchange\Utils\ExchangeObjectInterface;
@@ -46,6 +47,9 @@ class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
 
     public function getResult()
     {
+        /**
+         * @var Courses $context
+         */
         $context = $this->query->courses;
 
         $this->query->course = $context->setState(new Course())->handle($this->query->in, $this->query->out);
