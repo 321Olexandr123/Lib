@@ -73,6 +73,12 @@ class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
             'course' => $this->query->course,
             'selling' => $this->query->selling,
             'purchase' => $this->query->purchase,
+            'payment' => [
+                'min' => $this->query->payment->min(),
+                'max' => $this->query->payment->max(),
+                'constant' => $this->query->payment->constant(),
+                'percent' => $this->query->payment->percent(),
+            ]
         ];
     }
 }
