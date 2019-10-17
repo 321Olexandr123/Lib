@@ -8,7 +8,7 @@ use Exchange\State\Concrete\Selling;
 use Exchange\Utils\ExchangeBuilder;
 
 use Exchange\Utils\ExchangeObjectInterface;
-use Exchange\Utils\PaymentSystem;
+use Exchange\Utils\PaymentSystemInterface;
 
 class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
 {
@@ -38,7 +38,7 @@ class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
         return $this;
     }
 
-    public function payment(PaymentSystem $paymentSystem)
+    public function payment(PaymentSystemInterface $paymentSystem)
     {
         $this->query->payment = $paymentSystem;
         return $this;

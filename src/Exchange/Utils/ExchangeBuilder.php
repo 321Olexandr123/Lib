@@ -11,7 +11,7 @@ interface ExchangeBuilder
 
     public function courses(Courses $courses);
 
-    public function payment(PaymentSystem $paymentSystem);
+    public function payment(PaymentSystemInterface $paymentSystem);
 
     public function getResult();
 

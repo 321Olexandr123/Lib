@@ -4,7 +4,7 @@
 namespace Exchange\Utils;
 
 
-interface PaymentSystem
+interface PaymentSystemInterface
 {
     public function min(): float;
 
