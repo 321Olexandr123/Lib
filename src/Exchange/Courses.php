@@ -6,19 +6,43 @@ namespace Exchange;
 
 use Exchange\State\State;
 
-abstract class Courses
+abstract class Courses implements \Iterator
 {
-    /** @var State */
-    private $state;
+    private $stateList = [];
+    private $position = 0;
 
-    public function setState(State $state): State
-    {
-        $this->state = $state;
-        return $this->state;
+    public function __construct() {
+        $this->position = 0;
     }
 
-    public function getState(): State
+    public function add(State $state): self
     {
-        return $this->state;
+        $this->stateList[] = $state;
+        return $this;
+    }
+
+    public function create(array $states = []): self
+    {
+        $this->stateList = $states;
+        return $this;
+    }
+
+    public function rewind()
+    {
+        reset($this->stateList);
+    }
+
+    public function current()
+    {
+        return current($this->stateList);
+    }
+
+    public function key()
+    {
+        return get_class($this->current());
+    }
+    public function next()
+    {
+        return next($this->stateList);
     }
 }
