@@ -10,7 +10,7 @@ use Exchange\Utils\ExchangeBuilder;
 use Exchange\Utils\ExchangeObjectInterface;
 use Exchange\Utils\PaymentSystem;
 
-class Exchange implements ExchangeBuilder
+class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
 {
     protected $query;
 
@@ -53,5 +53,23 @@ class Exchange implements ExchangeBuilder
         $this->query->purchase = $context->setState(new Purchase())->handle($this->query->in, $this->query->out);
 
         return $this->query;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'in' => $this->query->in,
+            'out' => $this->query->out,
+            'course' => $this->query->course,
+            'selling' => $this->query->selling,
+            'purchase' => $this->query->purchase,
+        ];
     }
 }
