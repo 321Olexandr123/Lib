@@ -5,7 +5,6 @@ namespace Exchange;
 use Exchange\State\Concrete\Course;
 use Exchange\State\Concrete\Purchase;
 use Exchange\State\Concrete\Selling;
-use Exchange\State\State;
 use Exchange\Utils\ExchangeBuilder;
 
 use Exchange\Utils\ExchangeObjectInterface;
