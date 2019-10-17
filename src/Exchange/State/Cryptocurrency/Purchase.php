@@ -1,6 +1,8 @@
 <?php
 
-namespace Exchange\State\Concrete;
+
+namespace Exchange\State\Cryptocurrency;
+
 
 use Exchange\State\State;
 use Exchange\Utils\ExchangeObjectInterface;
@@ -16,10 +18,6 @@ class Purchase extends State
      */
     public function handle(ExchangeObjectInterface $in = null, ExchangeObjectInterface $out = null, $multiplicity = 1)
     {
-        if (isset($in, $out)){
-            return $multiplicity * ($multiplicity * $in->purchase()) / ($multiplicity*$out->purchase());
-        } else {
-            return null;
-        }
+        // TODO: Implement handle() method.
     }
 }

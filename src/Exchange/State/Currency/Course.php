@@ -1,13 +1,12 @@
 <?php
 
-namespace Exchange\State\Concrete;
+namespace Exchange\State\Currency;
 
 use Exchange\State\State;
 use Exchange\Utils\ExchangeObjectInterface;
 
-class Selling extends State
+class Course extends State
 {
-
     /**
      * @param ExchangeObjectInterface|null $in
      * @param ExchangeObjectInterface|null $out
@@ -17,7 +16,7 @@ class Selling extends State
     public function handle(ExchangeObjectInterface $in = null, ExchangeObjectInterface $out = null, $multiplicity = 1)
     {
         if (isset($in, $out)){
-            return $multiplicity * ($multiplicity * $in->selling()) / ($multiplicity*$out->selling());
+            return $multiplicity * ($multiplicity * $in->course()) / ($multiplicity*$out->course());
         } else {
             return null;
         }

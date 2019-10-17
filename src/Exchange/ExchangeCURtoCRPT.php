@@ -1,16 +1,17 @@
 <?php
 
+
 namespace Exchange;
+
 
 use Exchange\State\Currency\Course;
 use Exchange\State\Currency\Purchase;
 use Exchange\State\Currency\Selling;
 use Exchange\Utils\ExchangeBuilder;
-
 use Exchange\Utils\ExchangeObjectInterface;
 use Exchange\Utils\PaymentSystemInterface;
 
-class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
+class ExchangeCURtoCRPT implements ExchangeBuilder, \JsonSerializable
 {
     protected $query;
 
@@ -42,11 +43,6 @@ class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
     {
         $this->query->payment = $paymentSystem;
         return $this;
-    }
-
-    public function getExchange()
-    {
-
     }
 
     public function getResult()

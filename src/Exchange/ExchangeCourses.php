@@ -4,9 +4,9 @@
 namespace Exchange;
 
 
-use Exchange\State\Concrete\Course;
-use Exchange\State\Concrete\Purchase;
-use Exchange\State\Concrete\Selling;
+use Exchange\State\Currency\Course;
+use Exchange\State\Currency\Purchase;
+use Exchange\State\Currency\Selling;
 use Exchange\State\State;
 use Exchange\Utils\ExchangeObjectInterface;
 
