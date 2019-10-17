@@ -55,7 +55,7 @@ class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
         $this->query->selling = $context->setState(new Selling())->handle($this->query->in, $this->query->out);
         $this->query->purchase = $context->setState(new Purchase())->handle($this->query->in, $this->query->out);
 
-        return $this->query;
+        return $this->jsonSerialize();
     }
 
     /**
