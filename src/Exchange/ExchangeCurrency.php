@@ -44,6 +44,11 @@ class ExchangeCurrency implements ExchangeBuilder, \JsonSerializable
         return $this;
     }
 
+    public function getExchange()
+    {
+
+    }
+
     public function getResult()
     {
         /**
