@@ -13,7 +13,6 @@ use Exchange\Utils\PaymentSystem;
 class Exchange implements ExchangeBuilder
 {
     protected $query;
-    protected $content;
 
     protected function reset(): void
     {
