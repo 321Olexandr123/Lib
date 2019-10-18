@@ -45,7 +45,7 @@ interface ExchangePairInterface extends \Serializable
     /**
      * @return mixed
      */
-    public function getCourses(): array;
+    public function getCourses(): Courses;
 
     /**
      * @return mixed
