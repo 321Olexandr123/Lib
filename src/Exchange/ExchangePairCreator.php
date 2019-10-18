@@ -29,7 +29,7 @@ class ExchangePairCreator extends AbstractPairCreator
             if (in_array($method, $methods)){
                 $pair->$method($course->handle($pair->getIn(), $pair->getOut()));
             } else {
-                throw new \Exception("Not Found Method ".$method);
+                throw new \Exception("Not Found Method ".$method."()");
             }
         }
         $pair->setPayment($this->data->payment);
