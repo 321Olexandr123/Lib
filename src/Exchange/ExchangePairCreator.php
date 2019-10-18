@@ -10,29 +10,29 @@ use Exchange\Utils\ExchangePairInterface;
 class ExchangePairCreator extends AbstractPairCreator
 {
     /**
+     * @param ExchangePairInterface $pair
+     * @param $data
      * @return ExchangePairInterface
      * @throws \Exception
      */
-    function build(): ExchangePairInterface
+    public static function build(ExchangePairInterface $pair, \stdClass $data): ExchangePairInterface
     {
         /** @var ExchangePairInterface $pair */
-        $pair = $this->pair;
-
-        $pair->setIn($this->data->in);
-        $pair->setOut($this->data->out);
+        $pair->setIn($data->in);
+        $pair->setOut($data->out);
         /** @var State $course */
-        foreach ($this->data->courses->stateList as $course) {
-            $name = $this->data->courses->key($course);
+        foreach ($data->courses->stateList as $course) {
+            $name = $data->courses->key($course);
             $methods = get_class_methods($pair);
-            $method = 'set'.$name;
+            $method = 'set' . $name;
 
-            if (in_array($method, $methods)){
+            if (in_array($method, $methods)) {
                 $pair->$method($course->handle($pair->getIn(), $pair->getOut()));
             } else {
-                throw new \Exception("Not Found Method ".$method."()");
+                throw new \Exception("Not Found Method " . $method . "()");
             }
         }
-        $pair->setPayment($this->data->payment);
+        $pair->setPayment($data->payment);
 
         return $pair;
     }
