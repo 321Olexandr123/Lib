@@ -4,6 +4,8 @@
 namespace Exchange\Utils;
 
 
+use Exchange\Courses;
+
 interface ExchangePairInterface extends \Serializable
 {
     /**
@@ -19,10 +21,10 @@ interface ExchangePairInterface extends \Serializable
     public function setOut(ExchangeObjectInterface $exchangeObject);
 
     /**
-     * @param array $courses
+     * @param Courses $courses
      * @return mixed
      */
-    public function setCourses(array $courses);
+    public function setCourses(Courses $courses);
 
     /**
      * @param PaymentSystemInterface $paymentSystem
