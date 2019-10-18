@@ -14,9 +14,10 @@ class Courses implements \Iterator
     public $stateList = [];
     private $position = self::START;
 
-    public function __construct()
+    public function __construct(array $states = [])
     {
         $this->position = self::START;
+        $this->stateList = $states;
     }
 
     public function add(State $state): self
@@ -25,11 +26,11 @@ class Courses implements \Iterator
         return $this;
     }
 
-    public function create(array $states = []): self
-    {
-        $this->stateList = $states;
-        return $this;
-    }
+//    public function create(array $states = []): self
+//    {
+//        $this->stateList = $states;
+//        return $this;
+//    }
 
     public function rewind()
     {

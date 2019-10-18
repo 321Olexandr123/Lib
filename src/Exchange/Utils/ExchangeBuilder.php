@@ -18,10 +18,10 @@ interface ExchangeBuilder extends \JsonSerializable
     public function out(ExchangeObjectInterface $exchangeObject);
 
     /**
-     * @param array $courses
+     * @param Courses $courses
      * @return mixed
      */
-    public function courses(array $courses);
+    public function courses(Courses $courses);
 
     /**
      * @param PaymentSystemInterface $paymentSystem

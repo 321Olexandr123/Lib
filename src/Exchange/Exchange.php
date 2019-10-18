@@ -33,9 +33,9 @@ class Exchange implements ExchangeBuilder
         return $this;
     }
 
-    public function courses(array $courses)
+    public function courses(Courses $courses)
     {
-        $this->query->courses = (new Courses())->create($courses);
+        $this->query->courses = $courses;
         return $this;
     }
 
