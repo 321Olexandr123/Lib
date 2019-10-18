@@ -29,6 +29,8 @@ interface ExchangeBuilder extends \JsonSerializable
      */
     public function payment(PaymentSystemInterface $paymentSystem);
 
+    public function getQuery(): \stdClass;
+
     /**
      * @return mixed
      */

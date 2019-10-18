@@ -45,6 +45,11 @@ class Exchange implements ExchangeBuilder
         return $this;
     }
 
+    public function getQuery(): \stdClass
+    {
+       return $this->query;
+    }
+
     public function getResult()
     {
 
