@@ -44,8 +44,10 @@ class Courses implements \Iterator
     public function key()
     {
         try {
+
+            $tmp = (new ReflectionClass($this->current()))->getShortName();
             $this->next();
-            return (new ReflectionClass($this->current()))->getShortName();
+            return $tmp;
         } catch (\ReflectionException $e) {
         }
     }
