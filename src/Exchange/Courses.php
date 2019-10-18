@@ -9,12 +9,14 @@ use ReflectionClass;
 
 class Courses implements \Iterator
 {
+    const START = -1;
+
     public $stateList = [];
-    private $position = -1;
+    private $position = self::START;
 
     public function __construct()
     {
-        $this->position = -1;
+        $this->position = self::START;
     }
 
     public function add(State $state): self
@@ -31,7 +33,7 @@ class Courses implements \Iterator
 
     public function rewind()
     {
-        $this->position = -1;
+        $this->position = self::START;
     }
 
     public function current()
