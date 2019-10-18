@@ -11,7 +11,7 @@ use Exchange\Utils\ExchangeBuilder;
 use Exchange\Utils\ExchangeObjectInterface;
 use Exchange\Utils\PaymentSystemInterface;
 
-class Exchange implements ExchangeBuilder, \JsonSerializable
+class Exchange implements ExchangeBuilder
 {
     protected $query;
 
@@ -41,27 +41,20 @@ class Exchange implements ExchangeBuilder, \JsonSerializable
 
     public function payment(PaymentSystemInterface $paymentSystem)
     {
-        $this->query->payment = $paymentSystem;
-        return $this;
+//        $this->query->payment = $paymentSystem;
+//        return $this;
     }
 
     public function getResult()
     {
+
         /** @var State $course */
-        foreach ($this->query->courses as $course){
-            $name = key($course);
-            $this->query->course[]->$name = $course->handle($this->query->in, $this->query->out);
+        foreach ($this->query->courses->stateList as $course) {
+            $name = strtolower($this->query->courses->key($course));
+            $this->query->course[$name] = $course->handle($this->query->in, $this->query->out);
         }
-//        /**
-//         * @var Courses $context
-//         */
-//        $context = $this->query->courses;
-//
-//        $this->query->course = $context->setState(new Course())->handle($this->query->in, $this->query->out);
-//        $this->query->selling = $context->setState(new Selling())->handle($this->query->in, $this->query->out);
-//        $this->query->purchase = $context->setState(new Purchase())->handle($this->query->in, $this->query->out);
-//
-//        return $this->jsonSerialize();
+
+        return $this->jsonSerialize();
     }
 
     /**
@@ -77,12 +70,12 @@ class Exchange implements ExchangeBuilder, \JsonSerializable
             'in' => $this->query->in,
             'out' => $this->query->out,
             'course' => $this->query->course,
-            'payment' => [
-                'min' => $this->query->payment->min(),
-                'max' => $this->query->payment->max(),
-                'constant' => $this->query->payment->constant(),
-                'percent' => $this->query->payment->percent(),
-            ]
+//            'payment' => [
+//                'min' => $this->query->payment->min(),
+//                'max' => $this->query->payment->max(),
+//                'constant' => $this->query->payment->constant(),
+//                'percent' => $this->query->payment->percent(),
+//            ]
         ];
     }
 }

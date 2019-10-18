@@ -5,14 +5,16 @@ namespace Exchange;
 
 
 use Exchange\State\State;
+use ReflectionClass;
 
-abstract class Courses implements \Iterator
+class Courses implements \Iterator
 {
-    private $stateList = [];
-    private $position = 0;
+    public $stateList = [];
+    private $position = -1;
 
-    public function __construct() {
-        $this->position = 0;
+    public function __construct()
+    {
+        $this->position = -1;
     }
 
     public function add(State $state): self
@@ -29,20 +31,37 @@ abstract class Courses implements \Iterator
 
     public function rewind()
     {
-        reset($this->stateList);
+        $this->position = -1;
     }
 
     public function current()
     {
-        return current($this->stateList);
+        return $this->stateList[$this->position];
+    }
+
+    public function next()
+    {
+        ++$this->position;
     }
 
     public function key()
     {
-        return get_class($this->current());
+        try {
+            $this->next();
+            return (new ReflectionClass($this->current()))->getShortName();
+        } catch (\ReflectionException $e) {
+        }
     }
-    public function next()
+
+    /**
+     * Checks if current position is valid
+     * @link https://php.net/manual/en/iterator.valid.php
+     * @return void The return value will be casted to boolean and then evaluated.
+     * Returns true on success or false on failure.
+     * @since 5.0.0
+     */
+    public function valid()
     {
-        return next($this->stateList);
+        // TODO: Implement valid() method.
     }
 }

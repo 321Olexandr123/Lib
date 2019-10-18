@@ -3,7 +3,7 @@ namespace Exchange\Utils;
 
 use Exchange\Courses;
 
-interface ExchangeBuilder
+interface ExchangeBuilder extends \JsonSerializable
 {
     public function in(ExchangeObjectInterface $exchangeObject);
 
