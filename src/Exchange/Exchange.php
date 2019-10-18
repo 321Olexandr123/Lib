@@ -33,16 +33,16 @@ class Exchange implements ExchangeBuilder
         return $this;
     }
 
-    public function courses(Courses $courses)
+    public function courses(array $courses)
     {
-        $this->query->courses = $courses;
+        $this->query->courses = (new Courses())->create($courses);
         return $this;
     }
 
     public function payment(PaymentSystemInterface $paymentSystem)
     {
-//        $this->query->payment = $paymentSystem;
-//        return $this;
+        $this->query->payment = $paymentSystem;
+        return $this;
     }
 
     public function getResult()
@@ -70,12 +70,13 @@ class Exchange implements ExchangeBuilder
             'in' => $this->query->in,
             'out' => $this->query->out,
             'course' => $this->query->course,
-//            'payment' => [
-//                'min' => $this->query->payment->min(),
-//                'max' => $this->query->payment->max(),
-//                'constant' => $this->query->payment->constant(),
-//                'percent' => $this->query->payment->percent(),
-//            ]
+            'payment' => [
+                'name' => $this->query->payment->name(),
+                'min' => $this->query->payment->min(),
+                'max' => $this->query->payment->max(),
+                'constant' => $this->query->payment->constant(),
+                'percent' => $this->query->payment->percent(),
+            ]
         ];
     }
 }
