@@ -9,7 +9,7 @@ use ReflectionClass;
 
 class Courses implements \Iterator
 {
-    const START = -1;
+    const START = 0;
 
     public $stateList = [];
     private $position = self::START;
@@ -26,12 +26,6 @@ class Courses implements \Iterator
         return $this;
     }
 
-//    public function create(array $states = []): self
-//    {
-//        $this->stateList = $states;
-//        return $this;
-//    }
-
     public function rewind()
     {
         $this->position = self::START;
@@ -44,7 +38,7 @@ class Courses implements \Iterator
 
     public function next()
     {
-        ++$this->position;
+        $this->position++;
     }
 
     public function key()
