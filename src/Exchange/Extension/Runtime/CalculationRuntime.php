@@ -6,6 +6,7 @@ namespace Exchange\Extension\Runtime;
 
 
 use Exchange\Utils\ExchangePairInterface;
+use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -17,15 +18,15 @@ class CalculationRuntime implements RuntimeExtensionInterface
     /**
      * @var Twig_Environment
      */
-    private $twig_Environment;
+    private $environment;
 
     /**
      * CalculationRuntime constructor.
-     * @param Twig_Environment $twig_Environment
+     * @param Environment $environment
      */
-    public function __construct(Twig_Environment $twig_Environment)
+    public function __construct(Environment $environment)
     {
-        $this->twig_Environment = $twig_Environment;
+        $this->environment = $environment;
     }
 
     /**
@@ -37,7 +38,7 @@ class CalculationRuntime implements RuntimeExtensionInterface
      */
     public function action(ExchangePairInterface $exchangePair)
     {
-        return $this->twig_Environment->render('@Exchange/Template/calculation.html.twig', [
+        return $this->environment->render('@Exchange/Template/calculation.html.twig', [
             'pair' => $exchangePair
         ]);
     }
