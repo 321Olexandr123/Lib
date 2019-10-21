@@ -49,39 +49,4 @@ class Exchange implements ExchangeBuilder
     {
        return $this->query;
     }
-
-    public function getResult()
-    {
-
-        /** @var State $course */
-        foreach ($this->query->courses->stateList as $course) {
-            $name = strtolower($this->query->courses->key($course));
-            $this->query->course[$name] = $course->handle($this->query->in, $this->query->out);
-        }
-
-        return $this->jsonSerialize();
-    }
-
-    /**
-     * Specify data which should be serialized to JSON
-     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
-     */
-    public function jsonSerialize()
-    {
-        return [
-            'in' => $this->query->in,
-            'out' => $this->query->out,
-            'course' => $this->query->course,
-            'payment' => [
-                'name' => $this->query->payment->name(),
-                'min' => $this->query->payment->min(),
-                'max' => $this->query->payment->max(),
-                'constant' => $this->query->payment->constant(),
-                'percent' => $this->query->payment->percent(),
-            ]
-        ];
-    }
 }

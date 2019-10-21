@@ -3,11 +3,23 @@ namespace Exchange\Utils;
 
 interface ExchangeObjectInterface
 {
+    /**
+     * @return mixed
+     */
     function abbreviation();
 
-    public function course();
+    /**
+     * @return float
+     */
+    public function course(): float;
 
-    public function selling();
+    /**
+     * @return float
+     */
+    public function selling(): float;
 
-    public function purchase();
+    /**
+     * @return float
+     */
+    public function purchase(): float;
 }

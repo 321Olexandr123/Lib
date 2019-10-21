@@ -3,7 +3,7 @@ namespace Exchange\Utils;
 
 use Exchange\Courses;
 
-interface ExchangeBuilder extends \JsonSerializable
+interface ExchangeBuilder
 {
     /**
      * @param ExchangeObjectInterface $exchangeObject
@@ -29,11 +29,9 @@ interface ExchangeBuilder extends \JsonSerializable
      */
     public function payment(PaymentSystemInterface $paymentSystem);
 
-    public function getQuery(): \stdClass;
-
     /**
-     * @return mixed
+     * @return \stdClass
      */
-    public function getResult();
+    public function getQuery(): \stdClass;
 
 }

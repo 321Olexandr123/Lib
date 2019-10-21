@@ -9,6 +9,10 @@ interface PaymentSystemInterface
     /**
      * @return string
      */
+    public function signature(): string;
+    /**
+     * @return string
+     */
     public function name(): string;
 
     /**
