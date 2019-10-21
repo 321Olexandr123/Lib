@@ -9,9 +9,8 @@ class ExchangePairCreator extends AbstractPairCreator
 {
     /**
      * @param ExchangePairInterface $pair
-     * @param $data
+     * @param \stdClass $data
      * @return ExchangePairInterface
-     * @throws \Exception
      */
     public static function build(ExchangePairInterface $pair, \stdClass $data): ExchangePairInterface
     {

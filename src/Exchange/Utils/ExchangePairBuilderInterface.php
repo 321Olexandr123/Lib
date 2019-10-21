@@ -3,7 +3,7 @@
 namespace Exchange\Utils;
 
 
-interface ExchangeBuilder
+interface ExchangePairBuilderInterface
 {
     /**
      * @param ExchangeObjectInterface $exchangeObject

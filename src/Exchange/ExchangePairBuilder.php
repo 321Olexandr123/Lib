@@ -2,11 +2,11 @@
 
 namespace Exchange;
 
-use Exchange\Utils\ExchangeBuilder;
+use Exchange\Utils\ExchangePairBuilderInterface;
 use Exchange\Utils\ExchangeObjectInterface;
 use Exchange\Utils\PaymentSystemInterface;
 
-class Exchange implements ExchangeBuilder
+class ExchangePairBuilder implements ExchangePairBuilderInterface
 {
     protected $query;
 
