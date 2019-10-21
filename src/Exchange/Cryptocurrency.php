@@ -19,15 +19,18 @@ abstract class Cryptocurrency implements ExchangeObjectInterface
 
     abstract public function abbreviation();
 
-    public function course(){
+    public function course(): float
+    {
         return $this->content[$this->abbreviation()]['price'];
     }
 
-    public function selling(){
+    public function selling(): float
+    {
         return $this->content[$this->abbreviation()]['selling'];
     }
 
-    public function purchase(){
+    public function purchase(): float
+    {
         return $this->content[$this->abbreviation()]['purchase'];
     }
 }

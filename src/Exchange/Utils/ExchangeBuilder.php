@@ -24,13 +24,6 @@ interface ExchangeBuilder
     public function payment(PaymentSystemInterface $paymentSystem);
 
     /**
-     * @param ExchangeObjectInterface $in
-     * @param ExchangeObjectInterface $out
-     * @return mixed
-     */
-    public function course(ExchangeObjectInterface $in, ExchangeObjectInterface $out);
-
-    /**
      * @return \stdClass
      */
     public function getQuery(): \stdClass;

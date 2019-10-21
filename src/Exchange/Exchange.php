@@ -47,14 +47,11 @@ class Exchange implements ExchangeBuilder
     }
 
     /**
-     * @param ExchangeObjectInterface $in
-     * @param ExchangeObjectInterface $out
-     * @return Exchange
+     * @return void
      */
-    public function course(ExchangeObjectInterface $in, ExchangeObjectInterface $out)
+    private function course(): void
     {
-        $this->query->course = $in->selling() / $out->purchase();
-        return $this;
+        $this->query->course = $this->query->in->selling() / $this->query->out->purchase();
     }
 
     /**
@@ -62,6 +59,7 @@ class Exchange implements ExchangeBuilder
      */
     public function getQuery(): \stdClass
     {
+        $this->course();
         return $this->query;
     }
 }
