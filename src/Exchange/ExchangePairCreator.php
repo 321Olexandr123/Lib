@@ -3,8 +3,6 @@
 
 namespace Exchange;
 
-
-use Exchange\State\State;
 use Exchange\Utils\ExchangePairInterface;
 
 class ExchangePairCreator extends AbstractPairCreator
@@ -20,18 +18,7 @@ class ExchangePairCreator extends AbstractPairCreator
         /** @var ExchangePairInterface $pair */
         $pair->setIn($data->in);
         $pair->setOut($data->out);
-        /** @var State $course */
-        foreach ($data->courses->stateList as $course) {
-            $name = $data->courses->key($course);
-            $methods = get_class_methods($pair);
-            $method = 'set' . $name;
-
-            if (in_array($method, $methods)) {
-                $pair->$method($course->handle($pair->getIn(), $pair->getOut()));
-            } else {
-                throw new \Exception("Not Found Method " . $method . "()");
-            }
-        }
+        $pair->setCourse($data->course);
         $pair->setPayment($data->payment);
 
         return $pair;

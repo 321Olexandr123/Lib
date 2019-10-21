@@ -4,8 +4,6 @@
 namespace Exchange\Utils;
 
 
-use Exchange\Courses;
-
 interface ExchangePairInterface extends \Serializable
 {
     /**
@@ -19,6 +17,12 @@ interface ExchangePairInterface extends \Serializable
      * @return mixed
      */
     public function setOut(ExchangeObjectInterface $exchangeObject);
+
+    /**
+     * @param float $course
+     * @return mixed
+     */
+    public function setCourse(float $course);
 
     /**
      * @param PaymentSystemInterface $paymentSystem
@@ -40,4 +44,9 @@ interface ExchangePairInterface extends \Serializable
      * @return mixed
      */
     public function getPayment(): PaymentSystemInterface;
+
+    /**
+     * @return float
+     */
+    public function getCourse(): float;
 }

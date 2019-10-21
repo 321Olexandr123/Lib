@@ -1,7 +1,7 @@
 <?php
+
 namespace Exchange\Utils;
 
-use Exchange\Courses;
 
 interface ExchangeBuilder
 {
@@ -18,16 +18,17 @@ interface ExchangeBuilder
     public function out(ExchangeObjectInterface $exchangeObject);
 
     /**
-     * @param Courses $courses
-     * @return mixed
-     */
-    public function courses(Courses $courses);
-
-    /**
      * @param PaymentSystemInterface $paymentSystem
      * @return mixed
      */
     public function payment(PaymentSystemInterface $paymentSystem);
+
+    /**
+     * @param ExchangeObjectInterface $in
+     * @param ExchangeObjectInterface $out
+     * @return mixed
+     */
+    public function course(ExchangeObjectInterface $in, ExchangeObjectInterface $out);
 
     /**
      * @return \stdClass
