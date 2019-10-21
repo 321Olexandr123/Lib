@@ -33,5 +33,6 @@
         "psr-4": {
             "Exchange\\": "src/Exchange"
         }
-    }
+    },
+    "license": "MIT"
 }
