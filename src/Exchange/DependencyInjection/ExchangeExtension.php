@@ -3,7 +3,6 @@
 
 namespace Exchange\DependencyInjection;
 
-
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -25,5 +24,11 @@ final class ExchangeExtension extends Extension
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('exchange.xml');
+
+        $configuration = new Configuration();
+        $config = $processor->processConfiguration($configuration, $configs);
+        $paginatorDef = $container->getDefinition('exchange');
+
+        $paginatorDef->setLazy(true);
     }
 }
