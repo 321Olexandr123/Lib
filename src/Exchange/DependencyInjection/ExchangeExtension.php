@@ -17,18 +17,11 @@ final class ExchangeExtension extends Extension
      *
      * @param array $configs
      * @param ContainerBuilder $container
+     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $processor = new Processor();
-
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('exchange.xml');
-
-        $configuration = new Configuration();
-        $config = $processor->processConfiguration($configuration, $configs);
-        $paginatorDef = $container->getDefinition('exchange');
-
-        $paginatorDef->setLazy(true);
     }
 }
