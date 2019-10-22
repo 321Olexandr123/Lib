@@ -1,10 +1,9 @@
 <?php
 
 
-namespace Exchange\Extension;
+namespace Exchange\Twig\Extension;
 
 use Exchange\AbstractCalculation;
-use Exchange\Extension\Runtime\CalculationRuntime;
 use Twig\Extension\AbstractExtension;
 
 
