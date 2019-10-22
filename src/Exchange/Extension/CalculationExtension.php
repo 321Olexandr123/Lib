@@ -21,4 +21,5 @@ class CalculationExtension extends AbstractExtension
     {
         return $width * $length;
     }
+
 }
