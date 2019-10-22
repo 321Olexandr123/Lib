@@ -7,7 +7,6 @@
     <services>
 
         <service id="exchange.twig.extension.calculation" class="Exchange\Twig\Extension\CalculationExtension">
-<!--            <argument type="" id="exchange.helper.processor" />-->
             <tag name="twig.extension" />
         </service>
 

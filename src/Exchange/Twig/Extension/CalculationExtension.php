@@ -5,6 +5,7 @@ namespace Exchange\Twig\Extension;
 
 use Exchange\AbstractCalculation;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 
 class CalculationExtension extends AbstractExtension
@@ -12,7 +13,7 @@ class CalculationExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new \Twig_Function('area', [$this, 'calculateArea']),
+            new TwigFunction('area', [$this, 'calculateArea']),
         ];
     }
 
