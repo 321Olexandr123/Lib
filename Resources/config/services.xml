@@ -6,7 +6,7 @@
 
     <services>
 
-        <service id="exchange.twig.extension" class="Exchange\Twig\Extension\CalculationExtension">
+        <service id="exchange.twig.extension" class="ExchangeBundle\Twig\Extension\CalculationExtension">
             <tag name="twig.extension" />
         </service>
 
