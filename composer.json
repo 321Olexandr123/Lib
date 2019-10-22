@@ -1,6 +1,6 @@
 {
     "name": "exchange/exchange",
-    "type": "library",
+    "type": "symfony-bundle",
     "authors": [
         {
             "name": "Александр Громский",
