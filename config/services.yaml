@@ -14,3 +14,6 @@ services:
     exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
   # ...
+  Exchange\Extension\CalculationExtension:
+    public: false
+    tags: ['twig.extension']
