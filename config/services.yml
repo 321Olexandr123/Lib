@@ -1,0 +1,5 @@
+app.twig_extension:
+  class: Exchange\Twig\Extension\CalculationExtension
+  public: false
+  tags:
+    - { name: twig.extension }
