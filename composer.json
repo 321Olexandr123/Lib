@@ -24,9 +24,7 @@
     "require": {
         "php": ">=7.1.0",
         "ext-json": "*",
-        "twig/twig": "^2.0",
-        "twig/extensions": "^1.5",
-        "symfony/dependency-injection": "^4.3"
+        "twig/extensions": "^1.5"
     },
     "require-dev": {
         "ext-json": "*"

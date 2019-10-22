@@ -1,4 +1,0 @@
-services:
-    Exchange\Extension\CalculationExtension:
-        public: false
-        tags: ['twig.extension']
