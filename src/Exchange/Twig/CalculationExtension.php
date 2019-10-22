@@ -1,12 +1,10 @@
 <?php
 
 
-namespace Exchange\Twig\Extension;
+namespace Exchange\Twig;
 
-use Exchange\AbstractCalculation;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-
 
 class CalculationExtension extends AbstractExtension
 {
