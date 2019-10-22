@@ -5,9 +5,10 @@ namespace Exchange\Extension;
 
 use Exchange\AbstractCalculation;
 use Exchange\Extension\Runtime\CalculationRuntime;
+use Twig\Extension\AbstractExtension;
 
 
-class CalculationExtension
+class CalculationExtension extends AbstractExtension
 {
     public function getFunctions()
     {
