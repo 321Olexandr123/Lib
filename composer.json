@@ -1,6 +1,6 @@
 {
     "name": "exchange/exchange",
-    "type": "symfony-bundle",
+    "type": "library",
     "authors": [
         {
             "name": "Александр Громский",
@@ -33,7 +33,7 @@
     "description": "",
     "autoload": {
         "psr-4": {
-            "Exchange\\": "src/Exchange"
+            "Exchange\\": "src"
         }
     },
     "license": "MIT"
