@@ -1,5 +1,6 @@
 <?php
 
+namespace Exchange;
 
 use Exchange\DependencyInjection\ExchangeExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

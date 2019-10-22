@@ -9,18 +9,6 @@ use Twig\TwigFunction;
 
 class CalculationExtension extends AbstractExtension
 {
-    public function __construct()
-    {
-        $array = [
-            'foo' => 'bar',
-            'bar' => ['foo' => 'bar', 'bar' => 'baz'],
-        ];
-
-        $yaml = Yaml::dump($array);
-
-        file_put_contents('/config/services.yaml', $yaml);
-    }
-
     public function getFunctions()
     {
         return [
