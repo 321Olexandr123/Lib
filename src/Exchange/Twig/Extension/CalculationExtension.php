@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Exchange\Twig;
+namespace Exchange\Twig\Extension;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
