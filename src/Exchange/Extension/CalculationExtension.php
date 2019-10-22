@@ -3,16 +3,22 @@
 
 namespace Exchange\Extension;
 
+use Exchange\AbstractCalculation;
 use Exchange\Extension\Runtime\CalculationRuntime;
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
+
 
 class CalculationExtension extends AbstractExtension
 {
     public function getFunctions()
     {
         return [
-            new TwigFunction('exchange', [CalculationRuntime::class, 'action']),
+            new \Twig_Function('area', [$this, 'calculateArea']),
         ];
+    }
+
+    public function calculateArea(int $width, int $length)
+    {
+        return $width * $length;
     }
 }
