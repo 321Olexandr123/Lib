@@ -1,9 +1,8 @@
 <?php
 
 
-namespace Exchange;
-
-use Exchange\Utils\ExchangePairInterface;
+namespace ExchangeBundle\Exchange;
+use ExchangeBundle\Utils\ExchangePairInterface;
 
 abstract class AbstractPairCreator
 {

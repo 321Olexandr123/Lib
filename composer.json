@@ -33,7 +33,7 @@
     "description": "",
     "autoload": {
         "psr-4": {
-            "Exchange\\": "src"
+            "ExchangeBundle\\": ""
         }
     },
     "license": "MIT"

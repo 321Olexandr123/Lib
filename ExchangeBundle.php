@@ -1,7 +1,8 @@
 <?php
 
+namespace ExchangeBundle;
 
-use Exchange\DependencyInjection\ExchangeExtension;
+use ExchangeBundle\DependencyInjection\ExchangeExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class ExchangeBundle extends Bundle

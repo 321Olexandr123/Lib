@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Exchange\DependencyInjection;
+namespace ExchangeBundle\DependencyInjection;
 
 
 use Symfony\Component\Config\FileLocator;
@@ -22,7 +22,7 @@ class ExchangeExtension extends Extension
     {
         $loader = new XmlFileLoader(
             $container,
-            new FileLocator(__DIR__.'/../Resources/config')
+            new FileLocator(__DIR__ . '/../Resources/config')
         );
         $loader->load('services.xml');
     }

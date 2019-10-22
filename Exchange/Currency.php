@@ -1,8 +1,7 @@
 <?php
 
-namespace Exchange;
-
-use Exchange\Utils\ExchangeObjectInterface;
+namespace ExchangeBundle\Exchange;
+use ExchangeBundle\Utils\ExchangeObjectInterface;
 
 abstract class Currency implements ExchangeObjectInterface
 {

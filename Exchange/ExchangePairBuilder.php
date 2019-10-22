@@ -1,10 +1,9 @@
 <?php
 
-namespace Exchange;
-
-use Exchange\Utils\ExchangePairBuilderInterface;
-use Exchange\Utils\ExchangeObjectInterface;
-use Exchange\Utils\PaymentSystemInterface;
+namespace ExchangeBundle\Exchange;
+use ExchangeBundle\Utils\ExchangePairBuilderInterface;
+use ExchangeBundle\Utils\ExchangeObjectInterface;
+use ExchangeBundle\Utils\PaymentSystemInterface;
 
 class ExchangePairBuilder implements ExchangePairBuilderInterface
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Exchange\Utils;
+namespace ExchangeBundle\Utils;
 
 interface ExchangeObjectInterface
 {

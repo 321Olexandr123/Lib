@@ -1,6 +1,6 @@
 <?php
 
-namespace Exchange\Utils;
+namespace ExchangeBundle\Utils;
 
 
 interface ExchangePairBuilderInterface

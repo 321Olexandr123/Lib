@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Exchange;
+namespace ExchangeBundle\Exchange;
 
 
-use Exchange\Utils\CalculationInterface;
-use Exchange\Utils\ExchangePairInterface;
+use ExchangeBundle\Utils\CalculationInterface;
+use ExchangeBundle\Utils\ExchangePairInterface;
 
 abstract class AbstractCalculation implements CalculationInterface
 {

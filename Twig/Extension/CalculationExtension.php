@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Exchange\Twig\Extension;
+namespace ExchangeBundle\Twig\Extension;
 
 use Symfony\Component\Yaml\Yaml;
 use Twig\Extension\AbstractExtension;
