@@ -24,8 +24,7 @@
     "require": {
         "php": ">=7.1.0",
         "ext-json": "*",
-        "twig/extensions": "^1.5",
-        "symfony/config": "^4.3"
+        "twig/extensions": "^1.5"
     },
     "require-dev": {
         "ext-json": "*"
