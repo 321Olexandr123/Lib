@@ -38,7 +38,7 @@ class CalculationRuntime implements RuntimeExtensionInterface
      */
     public function action(ExchangePairInterface $exchangePair)
     {
-        return $this->environment->render('@Exchange/Template/calculation.html.twig', [
+        return $this->environment->render('@Exchange/Res/calculation.html.twig', [
             'pair' => $exchangePair
         ]);
     }
