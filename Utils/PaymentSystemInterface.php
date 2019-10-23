@@ -9,29 +9,29 @@ interface PaymentSystemInterface
     /**
      * @return string
      */
-    public function signature(): string;
+    public function getSignature(): string;
     /**
      * @return string
      */
-    public function name(): string;
+    public function getName(): string;
 
     /**
      * @return float
      */
-    public function min(): float;
+    public function getMin(): float;
 
     /**
      * @return float
      */
-    public function max(): float;
+    public function getMax(): float;
 
     /**
      * @return float
      */
-    public function percent(): float;
+    public function getPercent(): float;
 
     /**
      * @return float
      */
-    public function constant(): float;
+    public function getConstant(): float;
 }

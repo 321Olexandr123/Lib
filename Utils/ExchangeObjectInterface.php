@@ -6,25 +6,25 @@ interface ExchangeObjectInterface
     /**
      * @return mixed
      */
-    function abbreviation();
+    public function getAbbreviation():string;
 
     /**
      * @return float
      */
-    public function course(): float;
+    public function getCourse(): float;
 
     /**
      * @return float
      */
-    public function selling(): float;
+    public function getSelling(): float;
 
     /**
      * @return float
      */
-    public function purchase(): float;
+    public function getPurchase(): float;
 
     /**
      * @return PaymentSystemInterface
      */
-    public function payment(): PaymentSystemInterface;
+    public function getPayment(): PaymentSystemInterface;
 }

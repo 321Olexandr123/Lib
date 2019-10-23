@@ -4,7 +4,7 @@
 namespace ExchangeBundle\Utils;
 
 
-interface ExchangePairInterface extends \Serializable
+interface ExchangePairInterface
 {
     /**
      * @param ExchangeObjectInterface $exchangeObject
