@@ -16,20 +16,6 @@ use Twig\TwigFunction;
 
 class CalculationExtension extends AbstractExtension
 {
-    /**
-     * @var Environment
-     */
-    private $environment;
-
-    /**
-     * CalculationExtension constructor.
-     * @param Environment $environment
-     */
-    public function __construct(Environment $environment)
-    {
-        $this->environment = $environment;
-    }
-
     public function getFunctions()
     {
         return [
@@ -41,42 +27,45 @@ class CalculationExtension extends AbstractExtension
 
     /**
      * @param ExchangePairInterface $pair
+     * @param Environment $environment
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function exchange(ExchangePairInterface $pair)
+    public function exchange(ExchangePairInterface $pair,Environment $environment)
     {
-        return $this->environment->render('@Resources/views/exchange.html.twig', [
+        return $environment->render('@Resources/views/exchange.html.twig', [
             'pair' => $pair
         ]);
     }
 
     /**
      * @param ExchangeObjectInterface $exchangeObject
+     * @param Environment $environment
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function in(ExchangeObjectInterface $exchangeObject)
+    public function in(ExchangeObjectInterface $exchangeObject,Environment $environment)
     {
-        return $this->environment->render('@Resources/views/object.html.twig', [
+        return $environment->render('@Resources/views/object.html.twig', [
             'object' => $exchangeObject
         ]);
     }
 
     /**
      * @param ExchangeObjectInterface $exchangeObject
+     * @param Environment $environment
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function out(ExchangeObjectInterface $exchangeObject)
+    public function out(ExchangeObjectInterface $exchangeObject,Environment $environment)
     {
-        return $this->environment->render('@Resources/views/object.html.twig', [
+        return $environment->render('@Resources/views/object.html.twig', [
             'object' => $exchangeObject
         ]);
     }
