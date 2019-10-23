@@ -17,7 +17,6 @@ class ExchangePairCreator extends AbstractPairCreator
         $pair->setIn($data->in);
         $pair->setOut($data->out);
         $pair->setCourse($data->course);
-        $pair->setPayment($data->payment);
 
         return $pair;
     }
