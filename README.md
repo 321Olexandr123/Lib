@@ -14,7 +14,7 @@ You can download it from [`packagist.org`](https://packagist.org/packages/exchan
 - Twig `>=1.5` version is required if you use twig templating engine.
 - doctrine/collections `^1.6` for support collection and orm entity
 
-### Pretty simple with [Composer](http://packagist.org), run
+## Pretty simple with [Composer](http://packagist.org), run
 
 ```sh
 composer require exchange/exchange
@@ -31,7 +31,7 @@ return [
 ];
 ```
 
-### Get started
+## Get started
 You can implement you **Exchange Entity** with **ExchangeObjectInterface.php**
 
 ```php
