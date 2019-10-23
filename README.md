@@ -1,4 +1,4 @@
-#Exchange library for different currency
+##Exchange library for different currency
 
 **Exchange-itlab** friendly Symfony library to exchange everything
 
