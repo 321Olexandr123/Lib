@@ -18,14 +18,8 @@ interface ExchangePairBuilderInterface
     public function out(ExchangeObjectInterface $exchangeObject);
 
     /**
-     * @param PaymentSystemInterface $paymentSystem
-     * @return mixed
-     */
-    public function payment(PaymentSystemInterface $paymentSystem);
-
-    /**
      * @return \stdClass
      */
-    public function getQuery(): \stdClass;
+    public function build(): \stdClass;
 
 }

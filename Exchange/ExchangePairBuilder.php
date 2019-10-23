@@ -36,16 +36,6 @@ class ExchangePairBuilder implements ExchangePairBuilderInterface
     }
 
     /**
-     * @param PaymentSystemInterface $paymentSystem
-     * @return $this|mixed
-     */
-    public function payment(PaymentSystemInterface $paymentSystem)
-    {
-        $this->query->payment = $paymentSystem;
-        return $this;
-    }
-
-    /**
      * @return void
      */
     private function course(): void
@@ -56,7 +46,7 @@ class ExchangePairBuilder implements ExchangePairBuilderInterface
     /**
      * @return \stdClass
      */
-    public function getQuery(): \stdClass
+    public function build(): \stdClass
     {
         $this->course();
         return $this->query;

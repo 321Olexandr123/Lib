@@ -12,11 +12,11 @@ class CalculationExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('area', [$this, 'calculateArea']),
+            new TwigFunction('exchange', [$this, 'exchange']),
         ];
     }
 
-    public function calculateArea(int $width, int $length)
+    public function exchange(int $width, int $length)
     {
         return $width * $length;
     }

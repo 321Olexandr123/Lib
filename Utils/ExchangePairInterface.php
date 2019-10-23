@@ -25,12 +25,6 @@ interface ExchangePairInterface extends \Serializable
     public function setCourse(float $course);
 
     /**
-     * @param PaymentSystemInterface $paymentSystem
-     * @return mixed
-     */
-    public function setPayment(PaymentSystemInterface $paymentSystem);
-
-    /**
      * @return mixed
      */
     public function getIn(): ExchangeObjectInterface;
@@ -39,11 +33,6 @@ interface ExchangePairInterface extends \Serializable
      * @return mixed
      */
     public function getOut(): ExchangeObjectInterface;
-
-    /**
-     * @return mixed
-     */
-    public function getPayment(): PaymentSystemInterface;
 
     /**
      * @return float

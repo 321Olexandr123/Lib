@@ -9,21 +9,15 @@ use ExchangeBundle\Utils\ExchangePairInterface;
 
 abstract class AbstractCalculation implements CalculationInterface
 {
-
     private $pair;
 
     /**
      * AbstractCalculation constructor.
-     * @param ExchangePairInterface $exchangePair
+     * @param $pair
      */
-    public function __construct(ExchangePairInterface $exchangePair)
+    public function __construct(ExchangePairInterface $pair)
     {
-        $this->pair = $exchangePair;
-    }
-
-    public function pair(): ExchangePairInterface
-    {
-        return $this->pair;
+        $this->pair = $pair;
     }
 
     abstract public function onChangeIn(): float;
