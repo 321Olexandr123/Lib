@@ -26,7 +26,7 @@ composer require exchange/exchange
 // .../config/bundles.php
 return [
     // ...
-    ExchangeBundle\Twig\Extension\CalculationExtension::class => ['all' => true],
+    ExchangeBundle\ExchangeBundle::class => ['all' => true],
     // ...
 ];
 ```
