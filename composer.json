@@ -36,5 +36,10 @@
             "ExchangeBundle\\": ""
         }
     },
-    "license": "MIT"
+    "license": "MIT",
+    "extra": {
+        "symfony": {
+            "allow-contrib": "true"
+        }
+    }
 }
