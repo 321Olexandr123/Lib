@@ -33,9 +33,9 @@ class CalculationExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('exchange', [$this, 'exchange']),
-            new TwigFunction('exchange_in', [$this, 'in']),
-            new TwigFunction('exchange_out', [$this, 'out']),
+            new TwigFunction('exchange', [$this, 'exchange'], ['needs_environment' => true]),
+            new TwigFunction('exchange_in', [$this, 'in'], ['needs_environment' => true]),
+            new TwigFunction('exchange_out', [$this, 'out'], ['needs_environment' => true]),
         ];
     }
 
