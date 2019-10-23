@@ -17,7 +17,7 @@ You can download it from [`packagist.org`](https://packagist.org/packages/exchan
 ### Pretty simple with [Composer](http://packagist.org), run
 
 ```sh
-composer require knplabs/knp-paginator-bundle
+composer require exchange/exchange
 ```
 
 ### Add ExchangeBundle to your application kernel
