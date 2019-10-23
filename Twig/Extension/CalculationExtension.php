@@ -19,9 +19,9 @@ class CalculationExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('exchange', [$this, 'exchange'], ['needs_environment' => true]),
-            new TwigFunction('exchange_in', [$this, 'in'], ['needs_environment' => true]),
-            new TwigFunction('exchange_out', [$this, 'out'], ['needs_environment' => true]),
+            new TwigFunction('exchange', [$this, 'exchange'], ['is_safe' => ['html'],'needs_environment' => true]),
+            new TwigFunction('exchange_in', [$this, 'in'], ['is_safe' => ['html'],'needs_environment' => true]),
+            new TwigFunction('exchange_out', [$this, 'out'], ['is_safe' => ['html'],'needs_environment' => true]),
         ];
     }
 
@@ -33,9 +33,9 @@ class CalculationExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function exchange(ExchangePairInterface $pair,Environment $environment)
+    public function exchange(Environment $environment,ExchangePairInterface $pair)
     {
-        return $environment->render('@Resources/views/exchange.html.twig', [
+        return $environment->render('@Exchange/exchange.html.twig', [
             'pair' => $pair
         ]);
     }
@@ -50,7 +50,7 @@ class CalculationExtension extends AbstractExtension
      */
     public function in(ExchangeObjectInterface $exchangeObject,Environment $environment)
     {
-        return $environment->render('@Resources/views/object.html.twig', [
+        return $environment->render('@Exchange/object.html.twig', [
             'object' => $exchangeObject
         ]);
     }
@@ -65,7 +65,7 @@ class CalculationExtension extends AbstractExtension
      */
     public function out(ExchangeObjectInterface $exchangeObject,Environment $environment)
     {
-        return $environment->render('@Resources/views/object.html.twig', [
+        return $environment->render('@Exchange/object.html.twig', [
             'object' => $exchangeObject
         ]);
     }
