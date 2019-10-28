@@ -50,7 +50,7 @@ class CalculationExtension extends AbstractExtension
      */
     public function in(ExchangeObjectInterface $exchangeObject,Environment $environment)
     {
-        return $environment->render('@Resources/views/object.html.twig', [
+        return $environment->render('@Resources/views/exchange_in.html.twig', [
             'object' => $exchangeObject
         ]);
     }
@@ -65,7 +65,7 @@ class CalculationExtension extends AbstractExtension
      */
     public function out(ExchangeObjectInterface $exchangeObject,Environment $environment)
     {
-        return $environment->render('@Resources/views/object.html.twig', [
+        return $environment->render('@Resources/views/exchange_out.html.twig', [
             'object' => $exchangeObject
         ]);
     }
