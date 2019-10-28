@@ -12,7 +12,7 @@
 
     let input_id = document.getElementById('in');
     let input_out = document.getElementById('out');
-    let course = parseFloat('{{ course }}');
+    let course = parseFloat('{{ pair.getCourse }}');
 
     input_id.oninput = function () {
         input_out.value = course * input_id.value;
