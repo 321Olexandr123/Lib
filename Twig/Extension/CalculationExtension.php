@@ -36,7 +36,8 @@ class CalculationExtension extends AbstractExtension
     public function exchange(Environment $environment,ExchangePairInterface $pair)
     {
         return $environment->render('@Exchange/exchange.html.twig', [
-            'pair' => $pair
+            'pair' => $pair,
+            'course' => $pair->getCourse()
         ]);
     }
 
