@@ -12,14 +12,16 @@
 
     let input_id = document.getElementById('in');
     let input_out = document.getElementById('out');
-    let course = parseFloat('{{ pair.getCourse }}');
+    let pair = JSON.parse('{{ pair.jsonSerialize }}');
 
-    input_id.oninput = function () {
-        input_out.value = course * input_id.value;
-    };
+    console.log(pair);
 
-    input_out.oninput = function () {
-        input_id.value = input_out.value / course;
-    }
+    // input_id.oninput = function () {
+    //     input_out.value = course * input_id.value;
+    // };
+    //
+    // input_out.oninput = function () {
+    //     input_id.value = input_out.value / course;
+    // }
 
 </script>
