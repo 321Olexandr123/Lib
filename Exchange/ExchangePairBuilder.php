@@ -40,7 +40,7 @@ class ExchangePairBuilder implements ExchangePairBuilderInterface
      */
     private function course(): void
     {
-        $this->query->course = $this->query->in->getSelling() / $this->query->out->getPurchase();
+        $this->query->course = $this->query->out->getPurchase() / $this->query->in->getSelling();
     }
 
     /**
