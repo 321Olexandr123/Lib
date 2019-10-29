@@ -10,19 +10,19 @@
 
 <script>
 
-    let input_id = document.getElementById('in');
+    let input_in = document.getElementById('in');
     let input_out = document.getElementById('out');
     let pair = JSON.parse("{{ pair | json_encode | e('js') }}");
     const course = pair.course;
 
     console.log(pair);
 
-    input_id.oninput = function () {
-        input_out.value = course * input_id.value;
+    input_in.oninput = function () {
+        input_out.value = course * input_in.value;
     };
 
     input_out.oninput = function () {
-        input_id.value = input_out.value / course;
+        input_in.value = input_out.value / course;
     }
 
 </script>
