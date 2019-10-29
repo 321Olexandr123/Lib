@@ -1,9 +1,28 @@
 <div class="calculation calculation-input" id="calculation_in">
     <label class="calculation-signature" for="in">{{ pair.getIn.abbreviation }}{{ pair.getIn.payment.signature }}</label>
-    <input id="in" type="text">
+    <input id="in" type="text" value="1">
 </div>
 
 <div class="calculation calculation-input" id="calculation_out">
     <label class="calculation-signature" for="out">{{ pair.getOut.abbreviation }}{{ pair.getOut.payment.signature }}</label>
-    <input id="out" type="text">
+    <input id="out" type="text" value="{{ pair.getCourse }}">
 </div>
+
+<script>
+
+    let input_in = document.getElementById('in');
+    let input_out = document.getElementById('out');
+    let pair = JSON.parse("{{ pair | json_encode | e('js') }}");
+    const course = pair.course;
+
+    console.log(pair);
+
+    input_in.oninput = function () {
+        input_out.value = course * input_in.value;
+    };
+
+    input_out.oninput = function () {
+        input_in.value = input_out.value / course;
+    }
+
+</script>
