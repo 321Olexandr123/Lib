@@ -49,7 +49,7 @@ class CalculationExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function in(ExchangeObjectInterface $exchangeObject, Environment $environment)
+    public function in(Environment $environment, ExchangeObjectInterface $exchangeObject)
     {
         return $environment->render('@Exchange/exchange_in.html.twig', [
             'object' => $exchangeObject
@@ -64,7 +64,7 @@ class CalculationExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function out(ExchangeObjectInterface $exchangeObject, Environment $environment)
+    public function out(Environment $environment, ExchangeObjectInterface $exchangeObject)
     {
         return $environment->render('@Exchange/exchange_out.html.twig', [
             'object' => $exchangeObject
