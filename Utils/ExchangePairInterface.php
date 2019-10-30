@@ -9,17 +9,17 @@ interface ExchangePairInterface extends \JsonSerializable
     /**
      * @param ExchangeObjectInterface $exchangeObject
      */
-    public function setIn(ExchangeObjectInterface $exchangeObject);
+    public function setIn(ExchangeObjectInterface $exchangeObject): void;
 
     /**
      * @param ExchangeObjectInterface $exchangeObject
      */
-    public function setOut(ExchangeObjectInterface $exchangeObject);
+    public function setOut(ExchangeObjectInterface $exchangeObject): void;
 
     /**
      * @param float $course
      */
-    public function setCourse(float $course);
+    public function setCourse(float $course): void;
 
     /**
      * @return ExchangeObjectInterface
