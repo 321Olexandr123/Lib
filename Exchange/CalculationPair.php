@@ -9,7 +9,7 @@ use ExchangeBundle\Utils\ExchangePairInterface;
 class CalculationPair extends AbstractCalculationPair
 {
 
-    static function changeIn(float $count, ExchangePairInterface $pair): float
+    static function onChangeIn(float $count, ExchangePairInterface $pair): float
     {
         $course = $pair->getCourse();
         $payment = $pair->getOut()->getPayment();
@@ -19,7 +19,7 @@ class CalculationPair extends AbstractCalculationPair
         return $result;
     }
 
-    static function changeOut(float $count, ExchangePairInterface $pair): float
+    static function onChangeOut(float $count, ExchangePairInterface $pair): float
     {
         $course = $pair->getCourse();
         $payment = $pair->getOut()->getPayment();
