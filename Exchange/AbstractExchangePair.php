@@ -12,17 +12,17 @@ abstract class AbstractExchangePair implements ExchangePairInterface
     /**
      * @param ExchangeObjectInterface $exchangeObject
      */
-    abstract function setIn(ExchangeObjectInterface $exchangeObject);
+    abstract function setIn(ExchangeObjectInterface $exchangeObject): void ;
 
     /**
      * @param ExchangeObjectInterface $exchangeObject
      */
-    abstract function setOut(ExchangeObjectInterface $exchangeObject);
+    abstract function setOut(ExchangeObjectInterface $exchangeObject): void ;
 
     /**
      * @param float $course
      */
-    abstract function setCourse(float $course);
+    abstract function setCourse(float $course): void ;
 
     /**
      * @return ExchangeObjectInterface
