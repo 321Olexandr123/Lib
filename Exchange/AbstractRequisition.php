@@ -35,22 +35,22 @@ abstract class AbstractRequisition
     /**
      * @param float $count
      */
-    abstract public function setIn(float $count): void;
+    abstract public function setInCount(float $count): void;
 
     /**
      * @return float
      */
-    abstract public function getIn(): float;
+    abstract public function getInCount(): float;
 
     /**
      * @param float $count
      */
-    abstract public function setOut(float $count): void;
+    abstract public function setOutCount(float $count): void;
 
     /**
      * @return float
      */
-    abstract public function getOut(): float;
+    abstract public function getOutCount(): float;
 
     /**
      * @return PaymentSystemInterface
@@ -71,7 +71,10 @@ abstract class AbstractRequisition
     /**
      * @param State $state
      */
-    abstract public function setState(State $state): void;
+    public function setState(State $state): void
+    {
+        $this->state = $state;
+    }
 
     /**
      * @return State

@@ -6,7 +6,6 @@ namespace ExchangeBundle\Twig\Extension;
 use Doctrine\Common\Collections\ArrayCollection;
 use ExchangeBundle\Utils\ExchangeObjectInterface;
 use ExchangeBundle\Utils\ExchangePairInterface;
-use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Twig\Environment;
 use Twig\Error\LoaderError;

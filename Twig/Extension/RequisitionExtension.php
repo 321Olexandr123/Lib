@@ -106,7 +106,7 @@ class RequisitionExtension extends AbstractExtension
      */
     public function in(Environment $environment, AbstractRequisition $abstractRequisition): float
     {
-        return $abstractRequisition->getIn();
+        return $abstractRequisition->getInCount();
     }
 
     /**
