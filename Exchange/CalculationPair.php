@@ -14,8 +14,8 @@ class CalculationPair extends AbstractCalculationPair
         $course = $pair->getCourse();
         $payment = $pair->getOut()->getPayment();
         $tmp = min(max($payment->getMin(), $count * $payment->getPercent() / 100), $payment->getMax()) + $payment->getConstant();
-        $noComission = $count - $tmp;
-        $result = $noComission * $course;
+        $noCommission = $count - $tmp;
+        $result = $noCommission * $course;
         return $result;
     }
 
