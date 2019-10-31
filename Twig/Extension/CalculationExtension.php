@@ -6,6 +6,7 @@ namespace ExchangeBundle\Twig\Extension;
 use Doctrine\Common\Collections\ArrayCollection;
 use ExchangeBundle\Utils\ExchangeObjectInterface;
 use ExchangeBundle\Utils\ExchangePairInterface;
+use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Twig\Environment;
 use Twig\Error\LoaderError;
@@ -49,7 +50,7 @@ class CalculationExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function in(Environment $environment, ExchangeObjectInterface $exchangeObject)
+    public function in(ExchangeObjectInterface $exchangeObject, Environment $environment)
     {
         return $environment->render('@Exchange/exchange_in.html.twig', [
             'object' => $exchangeObject
@@ -64,7 +65,7 @@ class CalculationExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function out(Environment $environment, ExchangeObjectInterface $exchangeObject)
+    public function out(ExchangeObjectInterface $exchangeObject, Environment $environment)
     {
         return $environment->render('@Exchange/exchange_out.html.twig', [
             'object' => $exchangeObject
@@ -72,15 +73,17 @@ class CalculationExtension extends AbstractExtension
     }
 
     /**
-     * @param array $pair
      * @param Environment $environment
+     * @param array $pair
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function pair(array $pair, Environment $environment)
+    public function pair(Environment $environment, array $pair)
     {
-        return $environment->render('@Exchange/exchange_pair.html.twig');
+        return $environment->render('@Exchange/exchange_pair.html.twig', [
+            'pair' => $pair
+        ]);
     }
 }
