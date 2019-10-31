@@ -1,19 +1,20 @@
-<select id="in"></select>
-<select id="out"></select>
+<select id="objectIn"></select>
+<select id="objectOut"></select>
 <input type="button" value="Поменять">
 
 <script>
+    const In = 'objectIn';
+    const Out = 'objectOut';
+    var pairs = '{{ pair | json_encode | e('js') }}';
+    pairs = JSON.parse(pairs);
+    var objectIn = array_unique(getObjectIn(pairs));
+    var objectOut = array_unique(getObjectOut(pairs[0]['in']['abbreviation'], pairs));
 
-    var pair = '{{ pair | json_encode | e('js') }}';
-    pair = JSON.parse(pair);
-    var objectIn = array_unique(getObjectIn(pair));
-    var objectOut = array_unique(getObjectOut(pair[0]['in']['abbreviation'], pair));
+    createSelect(objectIn, In);
+    createSelect(objectOut, Out);
 
-    createSelect(objectIn, 'in');
-    createSelect(objectOut, 'out');
-
-    document.getElementById('in').addEventListener('change', function () {
-        createSelect(array_unique(getObjectOut(this.value.split(' ')[0], pair)), 'out');
+    document.getElementById(In).addEventListener('change', function () {
+        createSelect(array_unique(getObjectOut(this.value.split(' ')[0], pairs)), Out);
     });
 
     function getObjectIn(pair) {
