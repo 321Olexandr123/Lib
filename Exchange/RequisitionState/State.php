@@ -45,4 +45,9 @@ abstract class State
     {
         return '@Exchange/requisition/state/basic.html.twig';
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
