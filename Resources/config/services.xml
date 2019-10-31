@@ -6,7 +6,11 @@
 
     <services>
 
-        <service id="exchange.twig.extension" class="ExchangeBundle\Twig\Extension\CalculationExtension">
+        <service id="exchange.twig_extension.calculation_extension" class="ExchangeBundle\Twig\Extension\CalculationExtension">
+            <tag name="twig.extension" />
+        </service>
+
+        <service id="exchange.twig_extension.requisition_extension" class="ExchangeBundle\Twig\Extension\RequisitionExtension">
             <tag name="twig.extension" />
         </service>
 
