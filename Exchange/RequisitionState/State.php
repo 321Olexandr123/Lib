@@ -30,9 +30,9 @@ abstract class State
     }
 
     /**
-     *
+     * @return mixed
      */
-    public function getName(): void
+    public function getName()
     {
         return $this->name;
     }
