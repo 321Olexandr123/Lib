@@ -1,0 +1,61 @@
+<select id="in"></select>
+<select id="out"></select>
+<input type="button" value="Поменять">
+
+<script>
+
+    var pair = '{{ pair | json_encode | e('js') }}';
+    pair = JSON.parse(pair);
+    var objectIn = array_unique(getObjectIn(pair));
+    var objectOut = array_unique(getObjectOut(pair[0]['in']['abbreviation'], pair));
+
+    createSelect(objectIn, 'in');
+    createSelect(objectOut, 'out');
+
+    document.getElementById('in').addEventListener('change', function () {
+        createSelect(array_unique(getObjectOut(this.value.split(' ')[0], pair)), 'out');
+    });
+
+    function getObjectIn(pair) {
+        var objectIn = [];
+        for ($i = 0; $i < pair.length; $i++) {
+            objectIn[$i] = pair[$i]['in'];
+        }
+        return objectIn;
+    }
+
+    function getObjectOut(object, pair) {
+        var objectOut = [];
+        for ($i = 0; $i < pair.length; $i++) {
+            if (object == pair[$i]['in']['abbreviation']) {
+                objectOut[$i] = pair[$i]['out'];
+
+            }
+
+        }
+        return objectOut;
+    }
+
+    function array_unique(array) {
+        return array.filter((thing, index, self) => {
+            return index === self.findIndex(obj => {
+                return JSON.stringify(obj) === JSON.stringify(thing);
+            });
+        });
+    }
+
+    function createSelect(array, id) {
+        var select = document.getElementById(id);
+        for (i = select.options.length - 1; i >= 0; i--) {
+            select.remove(i);
+        }
+        for (var i = 0; i < array.length; i++) {
+            var opt = array[i]['abbreviation'] + ' ' + array[i]['payment']['signature'];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+    }
+
+</script>
