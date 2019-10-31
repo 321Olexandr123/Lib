@@ -24,7 +24,6 @@ class RequisitionExtension extends AbstractExtension
     {
         return [
             new TwigFunction('requisition_state', [$this, 'withRequisition'], ['is_safe' => ['html'], 'needs_environment' => true]),
-            new TwigFunction('requisition_state', [$this, 'withState'], ['is_safe' => ['html'], 'needs_environment' => true]),
             new TwigFunction('requisition_in', [$this, 'exchangeIn'], ['is_safe' => ['html'], 'needs_environment' => true]),
             new TwigFunction('requisition_out', [$this, 'exchangeOut'], ['is_safe' => ['html'], 'needs_environment' => true]),
             new TwigFunction('requisition_course', [$this, 'course'], ['is_safe' => ['html'], 'needs_environment' => true]),
@@ -51,21 +50,7 @@ class RequisitionExtension extends AbstractExtension
      */
     public function withRequisition(Environment $environment, AbstractRequisition $abstractRequisition)
     {
-        return $environment->render($abstractRequisition->getSate()->template(), [
-        ]);
-    }
-
-    /**
-     * @param Environment $environment
-     * @param State $state
-     * @return string
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
-     */
-    public function withState(Environment $environment, State $state)
-    {
-        return $environment->render($state->template(), [
+        return $environment->render($abstractRequisition->getState()->template(), [
         ]);
     }
 
@@ -116,7 +101,7 @@ class RequisitionExtension extends AbstractExtension
      */
     public function out(Environment $environment, AbstractRequisition $abstractRequisition): float
     {
-        return $abstractRequisition->getOut();
+        return $abstractRequisition->getOutCount();
     }
 
     public function course(Environment $environment, AbstractRequisition $abstractRequisition): float

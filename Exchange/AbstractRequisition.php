@@ -79,7 +79,7 @@ abstract class AbstractRequisition
     /**
      * @return State
      */
-    public function getSate(): State
+    public function getState(): State
     {
         return $this->state;
     }
