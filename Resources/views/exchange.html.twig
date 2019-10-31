@@ -15,6 +15,8 @@
 
     let pair = JSON.parse("{{ pair | json_encode | e('js') }}");
 
+    const course = pair.course;
+
     input_in.oninput = function () {
 
         let noCommission = Math.min(
