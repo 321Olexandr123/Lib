@@ -4,7 +4,7 @@
 namespace ExchangeBundle\Utils;
 
 
-interface PaymentSystemInterface
+interface PaymentSystemInterface extends \Serializable
 {
     /**
      * @return string

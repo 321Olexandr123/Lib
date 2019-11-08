@@ -17,9 +17,9 @@ abstract class AbstractPayment implements PaymentSystemInterface
 {
     /**
      * @var array
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="object")
      */
-    private $conditional;
+    protected $conditional;
 
     /**
      * @return string
@@ -63,5 +63,25 @@ abstract class AbstractPayment implements PaymentSystemInterface
     public function addConditional(PaymentConditionInterface $condition): void
     {
         $this->conditional[] = $condition;
+    }
+
+    /**
+     * @return string
+     */
+    public function serialize()
+    {
+        return serialize([
+            $this->conditional
+        ]);
+    }
+
+    /**
+     * @param string $serialized
+     */
+    public function unserialize($serialized)
+    {
+        list(
+            $this->conditional
+            ) = unserialize($serialized, ['allowed_classes' => true]);
     }
 }
