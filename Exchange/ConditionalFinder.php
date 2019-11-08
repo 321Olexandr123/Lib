@@ -26,10 +26,10 @@ class ConditionalFinder
     /**
      * @param PaymentConditionInterface $paymentCondition
      * @param $count
-     * @return PaymentConditionInterface
+     * @return PaymentConditionInterface | null
      */
-    static private function comparator($paymentCondition, $count): PaymentConditionInterface
+    static private function comparator($paymentCondition, float $count): ?PaymentConditionInterface
     {
-        return $paymentCondition->getLeftBound() <= $count && $count < $paymentCondition->getRightBound() ? $count: null;
+        return  ( $paymentCondition->getLeftBound() <= $count && $count < $paymentCondition->getRightBound() ) ? $paymentCondition: null;
     }
 }
