@@ -84,4 +84,9 @@ abstract class AbstractPayment implements PaymentSystemInterface
             $this->conditional
             ) = unserialize($serialized, ['allowed_classes' => true]);
     }
+
+    public function find(float $count): PaymentConditionInterface
+    {
+        return ConditionalFinder::find($this->getConditional(), $count);
+    }
 }
