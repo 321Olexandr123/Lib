@@ -26,12 +26,7 @@ interface PaymentSystemInterface
     public function getMax(): float;
 
     /**
-     * @return float
+     * @return PaymentConditionInterface
      */
-    public function getPercent(): float;
-
-    /**
-     * @return float
-     */
-    public function getConstant(): float;
+    public function getConditional(): PaymentConditionInterface;
 }

@@ -4,21 +4,49 @@
 namespace ExchangeBundle\Utils;
 
 
-interface PaymentConditionInterface
+interface PaymentConditionInterface extends \JsonSerializable
 {
-    public function getLeftBound();
+    /**
+     * @return float
+     */
+    public function getLeftBound(): float;
 
-    public function setLeftBound();
+    /**
+     * @param float $bound
+     * @return void
+     */
+    public function setLeftBound(float $bound): void;
 
-    public function getRightBound();
+    /**
+     * @return float
+     */
+    public function getRightBound(): float;
 
-    public function setRightBound();
-    
-    public function getPercent();
-    
-    public function setPercent();
+    /**
+     * @param float|null $bound
+     * @return void
+     */
+    public function setRightBound(?float $bound): void;
 
-    public function getConstant();
+    /**
+     * @return float
+     */
+    public function getPercent(): float;
 
-    public function setConstant();
+    /**
+     * @param float $bound
+     * @return void
+     */
+    public function setPercent(float $bound): void;
+
+    /**
+     * @return float
+     */
+    public function getConstant(): float;
+
+    /**
+     * @param float $bound
+     * @return void
+     */
+    public function setConstant(float $bound): void;
 }
