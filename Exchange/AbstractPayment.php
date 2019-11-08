@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 abstract class AbstractPayment implements PaymentSystemInterface
 {
     /**
-     * @var PaymentConditionInterface
+     * @var array
      * @ORM\Column(type="json_array")
      */
     private $conditional;
@@ -42,18 +42,26 @@ abstract class AbstractPayment implements PaymentSystemInterface
     abstract public function getMax(): float;
 
     /**
-     * @return PaymentConditionInterface
+     * @return array
      */
-    public function getConditional(): PaymentConditionInterface
+    public function getConditional(): array
     {
         return $this->conditional;
     }
 
     /**
-     * @param PaymentConditionInterface $conditional
+     * @param array $conditional
      */
-    public function setConditional(PaymentConditionInterface $conditional): void
+    public function setConditional(array $conditional): void
     {
         $this->conditional = $conditional;
+    }
+
+    /**
+     * @param PaymentConditionInterface $condition
+     */
+    public function addConditional(PaymentConditionInterface $condition): void
+    {
+        $this->conditional[] = $condition;
     }
 }

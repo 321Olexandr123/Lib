@@ -11,7 +11,7 @@ use ExchangeBundle\Utils\PaymentConditionInterface;
  * Class AbstractPaymentConditional
  * @package ExchangeBundle\Exchange
  */
-class AbstractPaymentConditional implements PaymentConditionInterface
+class PaymentConditional implements PaymentConditionInterface
 {
 
     private $leftBound;
@@ -21,6 +21,22 @@ class AbstractPaymentConditional implements PaymentConditionInterface
     private $percent;
 
     private $constant;
+
+    /**
+     * PaymentConditional constructor.
+     * @param $leftBound
+     * @param $rightBound
+     * @param $percent
+     * @param $constant
+     */
+    public function __construct($leftBound, $rightBound, $percent, $constant)
+    {
+        $this->leftBound = $leftBound;
+        $this->rightBound = $rightBound;
+        $this->percent = $percent;
+        $this->constant = $constant;
+    }
+
 
     /**
      * Specify data which should be serialized to JSON

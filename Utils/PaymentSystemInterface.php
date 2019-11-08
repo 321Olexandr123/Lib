@@ -10,6 +10,7 @@ interface PaymentSystemInterface
      * @return string
      */
     public function getSignature(): string;
+
     /**
      * @return string
      */
@@ -26,7 +27,7 @@ interface PaymentSystemInterface
     public function getMax(): float;
 
     /**
-     * @return PaymentConditionInterface
+     * @return array
      */
-    public function getConditional(): PaymentConditionInterface;
+    public function getConditional(): array;
 }
