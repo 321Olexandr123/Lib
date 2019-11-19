@@ -8,7 +8,11 @@ use ExchangeBundle\Utils\ExchangePairInterface;
 
 class CalculationPair extends AbstractCalculationPair
 {
-
+    /**
+     * @param float $count
+     * @param ExchangePairInterface $pair
+     * @return float
+     */
     static function onChangeIn(float $count, ExchangePairInterface $pair): float
     {
         $course = $pair->getCourse();
@@ -21,6 +25,11 @@ class CalculationPair extends AbstractCalculationPair
         return $result;
     }
 
+    /**
+     * @param float $count
+     * @param ExchangePairInterface $pair
+     * @return float
+     */
     static function onChangeOut(float $count, ExchangePairInterface $pair): float
     {
         $course = $pair->getCourse();

@@ -7,34 +7,3 @@
     <label class="calculation-signature" for="out">{{ pair.getOut.abbreviation }}{{ pair.getOut.payment.signature }}</label>
     <input id="out" type="text" value="{{ pair.getCourse }}">
 </div>
-
-<script>
-
-    let input_in = document.getElementById('in');
-    let input_out = document.getElementById('out');
-
-    let pair = JSON.parse("{{ pair | json_encode | e('js') }}");
-
-    const course = pair.course;
-
-    input_in.oninput = function () {
-
-        let noCommission = Math.min(
-            Math.max(
-                pair.out.payment.min,
-                input_in.value * pair.out.payment.percent / 100
-            ),
-            pair.out.payment.max
-        ) + pair.out.payment.constant;
-
-        noCommission = input_in.value - noCommission;
-
-        input_out.value = course * noCommission;
-    };
-
-    input_out.oninput = function () {
-
-        input_in.value = (input_out.value / course + pair.out.payment.constant) / ((100 - pair.out.payment.percent) / 100 );
-    }
-
-</script>

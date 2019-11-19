@@ -7,9 +7,19 @@ namespace ExchangeBundle\Exchange;
 use ExchangeBundle\Exchange\RequisitionState\State;
 use ExchangeBundle\Utils\ExchangePairInterface;
 use ExchangeBundle\Utils\PaymentSystemInterface;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Class AbstractRequisition
+ * @package ExchangeBundle\Exchange
+ * @ORM\MappedSuperclass()
+ */
 abstract class AbstractRequisition
 {
+    /**
+     * @var State
+     * @ORM\Column(type="object")
+     */
     protected $state;
 
     /**
