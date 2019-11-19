@@ -13,7 +13,9 @@ class CalculationPair extends AbstractCalculationPair
     {
         $course = $pair->getCourse();
         $payment = $pair->getOut()->getPayment();
-        $tmp = min(max($payment->getMin(), $count * $payment->getPercent() / 100), $payment->getMax()) + $payment->getConstant();
+        $conditional = ConditionalFinder::find($payment->getConditional(), $count);
+
+        $tmp = min(max($payment->getMin(), $count * $conditional->getPercent() / 100), $payment->getMax()) + $conditional->getConstant();
         $noCommission = $count - $tmp;
         $result = $noCommission * $course;
         return $result;
@@ -23,7 +25,9 @@ class CalculationPair extends AbstractCalculationPair
     {
         $course = $pair->getCourse();
         $payment = $pair->getOut()->getPayment();
-        $result = ($count / $course + $payment->getConstant()) / ((100 - $payment->getPercent()) / 100);
+        $conditional = ConditionalFinder::find($payment->getConditional(), $count);
+
+        $result = ($count / $course + $conditional->getConstant()) / ((100 - $conditional->getPercent()) / 100);
         return $result;
     }
 }

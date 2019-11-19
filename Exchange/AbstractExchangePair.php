@@ -52,8 +52,7 @@ abstract class AbstractExchangePair implements ExchangePairInterface
                 "payment" => [
                     "signature" => $in->getPayment()->getSignature(),
                     "name" => $in->getPayment()->getName(),
-                    "constant" => $in->getPayment()->getConstant(),
-                    "percent" => $in->getPayment()->getPercent(),
+                    'conditional' => $in->getPayment()->getConditional(),
                     "min" => $in->getPayment()->getMin(),
                     "max" => $in->getPayment()->getMax()
                 ]
@@ -66,8 +65,7 @@ abstract class AbstractExchangePair implements ExchangePairInterface
                 "payment" => [
                     "signature" => $out->getPayment()->getSignature(),
                     "name" => $out->getPayment()->getName(),
-                    "constant" => $out->getPayment()->getConstant(),
-                    "percent" => $out->getPayment()->getPercent(),
+                    'conditional' => $out->getPayment()->getConditional(),
                     "min" => $out->getPayment()->getMin(),
                     "max" => $out->getPayment()->getMax()
                 ]
