@@ -23,6 +23,8 @@ class CalculationExtension extends AbstractExtension
             new TwigFunction('exchange_in', [$this, 'in'], ['is_safe' => ['html'], 'needs_environment' => true]),
             new TwigFunction('exchange_out', [$this, 'out'], ['is_safe' => ['html'], 'needs_environment' => true]),
             new TwigFunction('exchange_pair', [$this, 'pair'], ['is_safe' => ['html'], 'needs_environment' => true])
+
+
         ];
     }
 

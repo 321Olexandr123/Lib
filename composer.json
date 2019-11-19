@@ -43,5 +43,6 @@
         "symfony": {
             "allow-contrib": "true"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
