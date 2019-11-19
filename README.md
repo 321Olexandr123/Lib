@@ -2,9 +2,6 @@
 
 **Exchange-itlab** friendly Symfony library to exchange everything
 
-
-[![Build Status](https://itlab-studio.com/wp-content/themes/itlab/assets/views/header/img/logo.png)](https://itlab-studio.com/)
-
 You can download it from [`packagist.org`](https://packagist.org/packages/exchange/exchange#dev-master)
 
 ## Requirements:
@@ -17,10 +14,13 @@ You can download it from [`packagist.org`](https://packagist.org/packages/exchan
 ## Pretty simple with [Composer](http://packagist.org), run
 
 ```sh
-composer require exchange/exchange
+1. composer config --global --auth http-basic.repo.packagist.com igor-itlab 825866aa17573d24b9cd498e1ea534ad363873a92ae8e44a6ee877f435cb
+2. composer config repositories.private-packagist composer https://repo.packagist.com/it-lab-studio/
+3. composer config repositories.packagist.org false
+4. composer require exchange/exchange
 ```
 
-### Add ExchangeBundle to your application kernel
+## Add ExchangeBundle to your application kernel
 
 ```php
 // .../config/bundles.php
@@ -35,13 +35,13 @@ return [
 You can implement you **Exchange Entity** with **ExchangeObjectInterface.php**
 
 ```php
-..../Currency.php
+// ..../Currency.php
 /**
  * @ORM\Entity(repositoryClass=" ...\Repository\CurrencyRepository")
  */
 class Currency implement ExchangeObjectInterface
 {
-    ....
+    // ....
     function getAbbreviation();
 
     public function getCourse(): float;
@@ -52,30 +52,30 @@ class Currency implement ExchangeObjectInterface
 
     public function getPayment(): PaymentSystemInterface;
         
-    ....
+    // ....
 }
 ```
 
 In order to create an exchange pair, you must use **ExchangePairBuilder**
 
 ```php
-..../MyСontroller.php
- public function index()
-    {
-        pairBuilder = new ExchangePairBuilder();
-    }
+// ..../MyController.php
+public function index()
+{
+    pairBuilder = new ExchangePairBuilder();
+}
 ```
 
 also you can save your object in **Entity**
 
 ```php
-..../Currency.php
+// ..../Currency.php
 /**
  * @ORM\Entity(repositoryClass=" ...\Repository\PairRepository")
  */
-class Pair implement ExchangePairInterface
+class Pair extends AbstractExchangePair
 {
-    ....
+    // ....
        
     public function setIn(ExchangeObjectInterface $exchangeObject);
 
@@ -89,39 +89,39 @@ class Pair implement ExchangePairInterface
 
     public function getCourse(): float;
         
-    ....
+    // ....
 }
 ```
 
-### Build pair example
+## Build pair example
 
 ```php
-..../MyСontroller.php
- public function index()
-    {
-        ...
-        pairBuilder
-                ->in(ExchangeObjectInterface $object)
-                ->out(ExchangeObjectInterface $object)
-                ->build(): \stdClass
-        ...
-    }
+// ..../MyController.php
+public function index()
+{
+    // ....
+    pairBuilder
+        ->in(ExchangeObjectInterface $object)
+        ->out(ExchangeObjectInterface $object)
+        ->build(): \stdClass
+    // ....
+}
 ```
 
 This builder return **stdClass** class object. You can use this to create your **Entity** object
 
 ```php
-..../MyСontroller.php
- public function index()
-    {
-        ...
-        pair = new Pair();
-        pair = ExchangePairCreator::build(pair,pairBuilder->build());
-        ...
-    }
+// ..../MyController.php
+public function index()
+{
+    // ....
+    pair = new Pair();
+    pair = ExchangePairCreator::build(pair,pairBuilder->build());
+    // ....
+}
 ```
 
-### Calculation render
+## Calculation render
 Extend your **Calculation** class and _override_ **change** behavior and use it in Controller when you want
 ```php
 ..../Сalculation.php

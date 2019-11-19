@@ -17,11 +17,6 @@ interface ExchangePairInterface extends \JsonSerializable
     public function setOut(ExchangeObjectInterface $exchangeObject): void;
 
     /**
-     * @param float $course
-     */
-    public function setCourse(float $course): void;
-
-    /**
      * @return ExchangeObjectInterface
      */
     public function getIn(): ExchangeObjectInterface;

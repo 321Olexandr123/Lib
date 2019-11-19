@@ -7,6 +7,7 @@ namespace ExchangeBundle\Exchange;
 use ExchangeBundle\Utils\ExchangeObjectInterface;
 use ExchangeBundle\Utils\ExchangePairInterface;
 use Doctrine\ORM\Mapping as ORM;
+use ExchangeBundle\Utils\PaymentSystemInterface;
 
 /**
  * Class AbstractExchangePair
@@ -25,9 +26,12 @@ abstract class AbstractExchangePair implements ExchangePairInterface
     abstract function setOut(ExchangeObjectInterface $exchangeObject): void;
 
     /**
-     * @param float $course
+     * @return float
      */
-    abstract function setCourse(float $course): void;
+    public function getCourse(): float
+    {
+        return $this->getOut()->getSelling() / $this->getIn()->getPurchase();
+    }
 
     /**
      * @return ExchangeObjectInterface
@@ -40,9 +44,12 @@ abstract class AbstractExchangePair implements ExchangePairInterface
     abstract function getOut(): ExchangeObjectInterface;
 
     /**
-     * @return float
+     * @return PaymentSystemInterface
      */
-    abstract function getCourse(): float;
+    public function getPayment()
+    {
+        return $this->getOut()->getPayment();
+    }
 
     public function jsonSerialize()
     {
