@@ -26,9 +26,9 @@
         "ext-json": "*",
         "twig/extensions": "^1.5",
         "symfony/yaml": "^4.3",
-        "symfony/framework-bundle": "^4.3",
         "doctrine/collections": "^1.6",
-        "doctrine/orm": "^2.6"
+        "doctrine/orm": "^2.6",
+        "symfony/framework-bundle": "^5.1@dev"
     },
     "require-dev": {
         "ext-json": "*"
