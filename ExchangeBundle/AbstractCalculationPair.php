@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ExchangeBundle\Exchange;
+namespace ExchangeBundle\ExchangeBundle;
 
 
 use ExchangeBundle\Utils\ExchangePairInterface;
