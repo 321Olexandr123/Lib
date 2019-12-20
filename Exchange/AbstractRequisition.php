@@ -3,8 +3,6 @@
 
 namespace ExchangeBundle\Exchange;
 
-
-use ExchangeBundle\Exchange\RequisitionState\State;
 use ExchangeBundle\Utils\ExchangePairInterface;
 use ExchangeBundle\Utils\PaymentSystemInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,12 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 abstract class AbstractRequisition
 {
-    /**
-     * @var State
-     * @ORM\Column(type="object")
-     */
-    protected $state;
-
     /**
      * @return ExchangePairInterface
      */
@@ -68,29 +60,5 @@ abstract class AbstractRequisition
     public function getPayment()
     {
         return $this->getPair()->getOut()->getPayment();
-    }
-
-    /**
-     * @param State $state
-     */
-    public function transitionTo(State $state): void
-    {
-        $this->state = $state;
-    }
-
-    /**
-     * @param State $state
-     */
-    public function setState(State $state): void
-    {
-        $this->state = $state;
-    }
-
-    /**
-     * @return State
-     */
-    public function getState(): State
-    {
-        return $this->state;
     }
 }
