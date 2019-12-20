@@ -16,7 +16,7 @@ class ConditionalFinder
     static public function find(array $conditional, $count){
         $array_map = null;
         foreach ($conditional as $key => $paymentCondition) {
-            $array_map =  ConditionalFinder::comparator($conditional[$key], $count);
+            $array_map =  self::comparator($conditional[$key], $count);
             if ($array_map !== null)
                 return $array_map;
         }
