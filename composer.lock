@@ -80,12 +80,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "382e7f4db9a12dc6c19431743a2b096041bcdd62"
+                "reference": "766a5a5c8694166f522c534a6663786b847378e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/382e7f4db9a12dc6c19431743a2b096041bcdd62",
-                "reference": "382e7f4db9a12dc6c19431743a2b096041bcdd62",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/766a5a5c8694166f522c534a6663786b847378e7",
+                "reference": "766a5a5c8694166f522c534a6663786b847378e7",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "redis",
                 "xcache"
             ],
-            "time": "2019-11-29T15:36:20+00:00"
+            "time": "2019-12-20T18:18:46+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -315,12 +315,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "39b76b4b29b78a7db6bcb0f023450affb62c14a0"
+                "reference": "400f6044bb9f9dcc05a418ab10bdb96ceea5481e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/39b76b4b29b78a7db6bcb0f023450affb62c14a0",
-                "reference": "39b76b4b29b78a7db6bcb0f023450affb62c14a0",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/400f6044bb9f9dcc05a418ab10bdb96ceea5481e",
+                "reference": "400f6044bb9f9dcc05a418ab10bdb96ceea5481e",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                 "sqlserver",
                 "sqlsrv"
             ],
-            "time": "2019-12-07T16:33:20+00:00"
+            "time": "2019-12-21T08:15:03+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -550,12 +550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "eca6c638ef64433b2e36a9221826e75e39c65eb9"
+                "reference": "6a1471ddbf2f448b35f3a8e390c903435e6dd5de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/eca6c638ef64433b2e36a9221826e75e39c65eb9",
-                "reference": "eca6c638ef64433b2e36a9221826e75e39c65eb9",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/6a1471ddbf2f448b35f3a8e390c903435e6dd5de",
+                "reference": "6a1471ddbf2f448b35f3a8e390c903435e6dd5de",
                 "shasum": ""
             },
             "require": {
@@ -598,7 +598,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2019-12-06T20:47:21+00:00"
+            "time": "2019-12-23T19:18:31+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -961,12 +961,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "298852edc2fc485e371d54c254a2f7b39db4f8b9"
+                "reference": "cf707b040d0919311b6a66b5f21256dfb89348ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/298852edc2fc485e371d54c254a2f7b39db4f8b9",
-                "reference": "298852edc2fc485e371d54c254a2f7b39db4f8b9",
+                "url": "https://api.github.com/repos/symfony/console/zipball/cf707b040d0919311b6a66b5f21256dfb89348ba",
+                "reference": "cf707b040d0919311b6a66b5f21256dfb89348ba",
                 "shasum": ""
             },
             "require": {
@@ -1029,7 +1029,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-12-17T14:24:10+00:00"
+            "time": "2019-12-26T09:51:30+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",

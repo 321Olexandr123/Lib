@@ -26,5 +26,5 @@ interface ExchangeObjectInterface
     /**
      * @return PaymentSystemInterface
      */
-    public function getPayment(): PaymentSystemInterface;
+    public function getPayment(): ?PaymentSystemInterface;
 }
