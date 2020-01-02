@@ -27,7 +27,7 @@ interface PaymentSystemInterface extends \Serializable
     public function getMax(): float;
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getConditional(): array;
+    public function getConditional(): ?array;
 }
