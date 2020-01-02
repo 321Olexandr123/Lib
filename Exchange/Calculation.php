@@ -6,19 +6,21 @@ namespace ExchangeBundle\Exchange;
 
 use ExchangeBundle\Utils\ExchangePairInterface;
 
-abstract class AbstractCalculationPair
+interface Calculation
 {
     /**
      * @param float $count
      * @param ExchangePairInterface $pair
+     * @param array $params
      * @return float
      */
-    abstract static function onChangeIn(float $count, ExchangePairInterface $pair): float;
+    public static function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float;
 
     /**
      * @param float $count
      * @param ExchangePairInterface $pair
+     * @param array $params
      * @return float
      */
-    abstract static function onChangeOut(float $count, ExchangePairInterface $pair): float;
+    public static function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float;
 }
