@@ -1,4 +1,5 @@
 <?php
+
 namespace ExchangeBundle\Utils;
 
 interface ExchangeObjectInterface
@@ -6,7 +7,7 @@ interface ExchangeObjectInterface
     /**
      * @return mixed
      */
-    public function getAbbreviation():string;
+    public function getAbbreviation(): string;
 
     /**
      * @return float

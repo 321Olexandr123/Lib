@@ -11,28 +11,44 @@ class Selling implements Calculation
     /**
      * @inheritDoc
      */
-    public function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float
+    public static function onChangeIn(float $count, ExchangePairInterface $pair): float
     {
-//        $course = $pair->getCourse();
-//        $payment = $pair->getOut()->getPayment();
-//        $conditional = ConditionalFinder::find($payment->getConditional(), $count);
-//
-//        $tmp = min(max($payment->getMin(), $count * $conditional->getPercent() / 100), $payment->getMax()) + $conditional->getConstant();
-//        $noCommission = $count - $tmp;
-//        $result = $noCommission * $course;
-//        return $result;
+        $result = null;
+
+        $course = $pair->getCourse();
+
+        $paymentPercent = $pair->getIn()->getPaymentPercent();
+        $paymentConstant = $pair->getIn()->getPaymentConstant();
+        $exchangePercent = $pair->getOut()->getExchangePercent();
+        $exchangeConstant = $pair->getOut()->getExchangeConstant();
+
+        $cryptocurrencyTmp = $count - ($count * $exchangePercent) / 100 - $exchangeConstant;
+        $currencyTmp = $cryptocurrencyTmp * $course;
+
+        $result = $currencyTmp * (1 - $paymentPercent / 100) - $paymentConstant;
+
+        return $result;
     }
 
     /**
      * @inheritDoc
      */
-    public function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float
+    public static function onChangeOut(float $count, ExchangePairInterface $pair): float
     {
-//        $course = $pair->getCourse();
-//        $payment = $pair->getOut()->getPayment();
-//        $conditional = ConditionalFinder::find($payment->getConditional(), $count);
-//
-//        $result = ($count / $course + $conditional->getConstant()) / ((100 - $conditional->getPercent()) / 100);
-//        return $result;
+        $result = null;
+
+        $course = $pair->getCourse();
+
+        $paymentPercent = $pair->getIn()->getPaymentPercent();
+        $paymentConstant = $pair->getIn()->getPaymentConstant();
+        $exchangePercent = $pair->getOut()->getExchangePercent();
+        $exchangeConstant = $pair->getOut()->getExchangeConstant();
+
+        $currencyTmp = ($count + $paymentConstant) / (1 - $paymentPercent / 100);
+        $cryptocurrencyTmp = $currencyTmp / $course;
+
+        $result = ($cryptocurrencyTmp + $exchangeConstant) / (1 - $exchangePercent / 100);
+
+        return $result;
     }
 }

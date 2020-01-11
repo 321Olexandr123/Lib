@@ -3,51 +3,55 @@
 
 namespace ExchangeBundle\Exchange;
 
-
-use ExchangeBundle\Service\Settings;
+use Exception;
 use ExchangeBundle\Utils\ExchangePairInterface;
 
 class Purchase implements Calculation
 {
-    const REQUIRED_PURCHASE = ['percent', 'constant'];
 
     /**
      * @inheritDoc
-     * @throws \Exception
+     * @throws Exception
      */
-    public function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float
+    public static function onChangeIn(float $count, ExchangePairInterface $pair): float
     {
-        Settings::validate(self::REQUIRED_PURCHASE, $params);
-        //        TODO Саша сделаешь формулы
+        $result = null;
 
+        $course = $pair->getCourse();
 
-//        $course = $pair->getCourse();
-//        $payment = $pair->getOut()->getPayment();
-//        $conditional = ConditionalFinder::find($payment->getConditional(), $count);
-//
-//        $tmp = min(max($payment->getMin(), $count * $conditional->getPercent() / 100), $payment->getMax()) + $conditional->getConstant();
-//        $noCommission = $count - $tmp;
-//        $result = $noCommission * $course;
-//
-//        return $result * (1 - $params['percent'] / 100) - $params['constant'];
+        $paymentPercent = $pair->getIn()->getPaymentPercent();
+        $paymentConstant = $pair->getIn()->getPaymentConstant();
+        $exchangePercent = $pair->getOut()->getExchangePercent();
+        $exchangeConstant = $pair->getOut()->getExchangeConstant();
+
+        $currencyTmp = $count - ($count * $paymentPercent) / 100 - $paymentConstant;
+        $cryptocurrencyTmp = $currencyTmp / $course;
+
+        $result = $cryptocurrencyTmp * (1 - $exchangePercent / 100) - $exchangeConstant;
+
+        return $result;
     }
 
     /**
      * @inheritDoc
-     * @throws \Exception
+     * @throws Exception
      */
-    public function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float
+    public static function onChangeOut(float $count, ExchangePairInterface $pair): float
     {
-        Settings::validate(self::REQUIRED_PURCHASE, $params);
+        $result = null;
 
-        //        TODO Саша сделаешь формулы
+        $course = $pair->getCourse();
 
-//        $course = $pair->getCourse();
-//        $payment = $pair->getOut()->getPayment();
-//        $conditional = ConditionalFinder::find($payment->getConditional(), $count);
-//
-//        $result = ($count / $course + $conditional->getConstant()) / ((100 - $conditional->getPercent()) / 100);
-//
-//        return $result ;
+        $paymentPercent = $pair->getIn()->getPaymentPercent();
+        $paymentConstant = $pair->getIn()->getPaymentConstant();
+        $exchangePercent = $pair->getOut()->getExchangePercent();
+        $exchangeConstant = $pair->getOut()->getExchangeConstant();
+
+        $cryptocurrencyTmp = ($count + $exchangeConstant) / (1 - $exchangePercent / 100);
+        $currencyTmp = $course * $cryptocurrencyTmp;
+
+        $result = ($currencyTmp + $paymentConstant) / (1 - $paymentPercent / 100);
+
+        return $result;
     }
 }
