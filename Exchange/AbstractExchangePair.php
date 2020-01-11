@@ -4,9 +4,8 @@
 namespace ExchangeBundle\Exchange;
 
 
-use ExchangeBundle\Utils\ExchangeObjectInterface;
 use ExchangeBundle\Utils\ExchangePairInterface;
-use Doctrine\ORM\Mapping as ORM;
+use ExchangeBundle\Utils\ExtendExchange;
 use ExchangeBundle\Utils\PaymentSystemInterface;
 
 /**
@@ -16,14 +15,14 @@ use ExchangeBundle\Utils\PaymentSystemInterface;
 abstract class AbstractExchangePair implements ExchangePairInterface
 {
     /**
-     * @param ExchangeObjectInterface $exchangeObject
+     * @param ExtendExchange $exchangeObject
      */
-    abstract function setIn(ExchangeObjectInterface $exchangeObject): void;
+    abstract function setIn(ExtendExchange $exchangeObject): void;
 
     /**
-     * @param ExchangeObjectInterface $exchangeObject
+     * @param ExtendExchange $exchangeObject
      */
-    abstract function setOut(ExchangeObjectInterface $exchangeObject): void;
+    abstract function setOut(ExtendExchange $exchangeObject): void;
 
     /**
      * @return float
@@ -34,14 +33,14 @@ abstract class AbstractExchangePair implements ExchangePairInterface
     }
 
     /**
-     * @return ExchangeObjectInterface
+     * @return ExtendExchange
      */
-    abstract function getIn(): ExchangeObjectInterface;
+    abstract function getIn(): ExtendExchange;
 
     /**
-     * @return ExchangeObjectInterface
+     * @return ExtendExchange
      */
-    abstract function getOut(): ExchangeObjectInterface;
+    abstract function getOut(): ExtendExchange;
 
     /**
      * @return PaymentSystemInterface
