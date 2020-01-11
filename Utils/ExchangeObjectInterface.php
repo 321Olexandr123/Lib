@@ -22,9 +22,4 @@ interface ExchangeObjectInterface
      * @return float
      */
     public function getPurchase(): float;
-
-    /**
-     * @return PaymentSystemInterface
-     */
-    public function getPayment(): ?PaymentSystemInterface;
 }

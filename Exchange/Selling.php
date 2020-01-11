@@ -11,7 +11,7 @@ class Selling implements Calculation
     /**
      * @inheritDoc
      */
-    public static function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float
+    public function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float
     {
 //        $course = $pair->getCourse();
 //        $payment = $pair->getOut()->getPayment();
@@ -26,7 +26,7 @@ class Selling implements Calculation
     /**
      * @inheritDoc
      */
-    public static function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float
+    public function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float
     {
 //        $course = $pair->getCourse();
 //        $payment = $pair->getOut()->getPayment();

@@ -15,7 +15,7 @@ class Purchase implements Calculation
      * @inheritDoc
      * @throws \Exception
      */
-    public static function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float
+    public function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float
     {
         Settings::validate(self::REQUIRED_PURCHASE, $params);
         //        TODO Саша сделаешь формулы
@@ -36,7 +36,7 @@ class Purchase implements Calculation
      * @inheritDoc
      * @throws \Exception
      */
-    public static function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float
+    public function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float
     {
         Settings::validate(self::REQUIRED_PURCHASE, $params);
 

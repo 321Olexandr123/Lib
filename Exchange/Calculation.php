@@ -14,7 +14,7 @@ interface Calculation
      * @param array $params
      * @return float
      */
-    public static function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float;
+    public function onChangeIn(float $count, ExchangePairInterface $pair, $params = []): float;
 
     /**
      * @param float $count
@@ -22,5 +22,5 @@ interface Calculation
      * @param array $params
      * @return float
      */
-    public static function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float;
+    public function onChangeOut(float $count, ExchangePairInterface $pair, $params = []): float;
 }

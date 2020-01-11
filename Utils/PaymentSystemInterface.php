@@ -9,25 +9,20 @@ interface PaymentSystemInterface extends \Serializable
     /**
      * @return string
      */
-    public function getSignature(): string;
+    public function getSignature(): ?string;
 
     /**
      * @return string
      */
-    public function getName(): string;
+    public function getName(): ?string;
 
     /**
      * @return float
      */
-    public function getMin(): float;
+    public function getPercent(): float;
 
     /**
      * @return float
      */
-    public function getMax(): float;
-
-    /**
-     * @return array|null
-     */
-    public function getConditional(): ?array;
+    public function getConstant(): float;
 }
