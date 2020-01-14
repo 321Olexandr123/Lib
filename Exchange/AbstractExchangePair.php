@@ -14,15 +14,10 @@ use ExchangeBundle\Utils\PaymentSystemInterface;
  */
 abstract class AbstractExchangePair implements ExchangePairInterface
 {
-    /**
-     * @param ExtendExchange $exchangeObject
-     */
-    abstract function setIn(ExtendExchange $exchangeObject): void;
 
-    /**
-     * @param ExtendExchange $exchangeObject
-     */
-    abstract function setOut(ExtendExchange $exchangeObject): void;
+    abstract function setIn(): void;
+
+    abstract function setOut(): void;
 
     /**
      * @return float
