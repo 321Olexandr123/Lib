@@ -15,9 +15,9 @@ use ExchangeBundle\Utils\PaymentSystemInterface;
 abstract class AbstractExchangePair implements ExchangePairInterface
 {
 
-    abstract function setIn(): void;
+    abstract function setIn(ExtendExchange $extendExchange): void;
 
-    abstract function setOut(): void;
+    abstract function setOut(ExtendExchange $extendExchange): void;
 
     /**
      * @return float

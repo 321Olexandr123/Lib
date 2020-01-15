@@ -6,9 +6,9 @@ namespace ExchangeBundle\Utils;
 
 interface ExchangePairInterface extends \JsonSerializable
 {
-    public function setIn(): void;
+    public function setIn(ExtendExchange $extendExchange): void;
 
-    public function setOut(): void;
+    public function setOut(ExtendExchange $extendExchange): void;
 
     /**
      * @return ExtendExchange
