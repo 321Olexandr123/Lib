@@ -9,7 +9,7 @@ interface ExtendExchange
     /**
      * @return PaymentSystemInterface
      */
-    public function getPayment(): PaymentSystemInterface;
+    public function getPaymentSystem(): PaymentSystemInterface;
 
     /**
      * @return ExchangeObjectInterface
