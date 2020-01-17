@@ -15,12 +15,12 @@ interface ExchangeObjectInterface
     public function getCourse(): float;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getSelling(): float;
+    public function getSelling(): ?float;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPurchase(): float;
+    public function getPurchase(): ?float;
 }
