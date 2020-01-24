@@ -24,4 +24,8 @@ interface ExchangePairInterface extends \JsonSerializable
      * @return float
      */
     public function getCourse(): float;
+    /**
+     * @return string
+     */
+    public function getType(): string;
 }
