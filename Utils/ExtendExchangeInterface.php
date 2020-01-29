@@ -17,9 +17,9 @@ interface ExtendExchangeInterface
     public function getExchangeObject(): ExchangeObjectInterface;
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getProvider(): string;
+    public function getProvider();
 
     /**
      * @return float
