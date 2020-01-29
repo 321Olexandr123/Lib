@@ -6,8 +6,6 @@ namespace ExchangeBundle\Exchange;
 
 use ExchangeBundle\Utils\ExchangePairInterface;
 use ExchangeBundle\Utils\ExtendExchangeInterface;
-use ExchangeBundle\Utils\PaymentSettingsInterface;
-use ExchangeBundle\Utils\PaymentSystemInterface;
 
 /**
  * Class AbstractExchangePair
@@ -43,11 +41,4 @@ abstract class AbstractExchangePair implements ExchangePairInterface
      */
     abstract function getType(): string;
 
-    /**
-     * @return PaymentSettingsInterface
-     */
-    public function getPaymentSettings()
-    {
-        return $this->getOut()->getPaymentSettings();
-    }
 }
