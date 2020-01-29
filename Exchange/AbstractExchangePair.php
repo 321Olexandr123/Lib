@@ -5,7 +5,8 @@ namespace ExchangeBundle\Exchange;
 
 
 use ExchangeBundle\Utils\ExchangePairInterface;
-use ExchangeBundle\Utils\ExtendExchange;
+use ExchangeBundle\Utils\ExtendExchangeInterface;
+use ExchangeBundle\Utils\PaymentSettingsInterface;
 use ExchangeBundle\Utils\PaymentSystemInterface;
 
 /**
@@ -15,9 +16,9 @@ use ExchangeBundle\Utils\PaymentSystemInterface;
 abstract class AbstractExchangePair implements ExchangePairInterface
 {
 
-    abstract function setIn(ExtendExchange $extendExchange): void;
+    abstract function setIn(ExtendExchangeInterface $extendExchange): void;
 
-    abstract function setOut(ExtendExchange $extendExchange): void;
+    abstract function setOut(ExtendExchangeInterface $extendExchange): void;
 
     /**
      * @return float
@@ -28,14 +29,14 @@ abstract class AbstractExchangePair implements ExchangePairInterface
     }
 
     /**
-     * @return ExtendExchange
+     * @return ExtendExchangeInterface
      */
-    abstract function getIn(): ExtendExchange;
+    abstract function getIn(): ExtendExchangeInterface;
 
     /**
-     * @return ExtendExchange
+     * @return ExtendExchangeInterface
      */
-    abstract function getOut(): ExtendExchange;
+    abstract function getOut(): ExtendExchangeInterface;
 
     /**
      * @return string
@@ -43,10 +44,10 @@ abstract class AbstractExchangePair implements ExchangePairInterface
     abstract function getType(): string;
 
     /**
-     * @return PaymentSystemInterface
+     * @return PaymentSettingsInterface
      */
-    public function getPayment()
+    public function getPaymentSettings()
     {
-        return $this->getOut()->getPaymentSystem();
+        return $this->getOut()->getPaymentSettings();
     }
 }

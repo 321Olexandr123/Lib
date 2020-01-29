@@ -4,7 +4,7 @@
 namespace ExchangeBundle\Utils;
 
 
-interface ExtendExchange
+interface ExtendExchangeInterface
 {
     /**
      * @return PaymentSystemInterface
@@ -15,4 +15,9 @@ interface ExtendExchange
      * @return ExchangeObjectInterface
      */
     public function getExchangeObject(): ExchangeObjectInterface;
+
+    /**
+     * @return PaymentSettingsInterface
+     */
+    public function getPaymentSettings(): PaymentSettingsInterface;
 }
