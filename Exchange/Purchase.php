@@ -19,10 +19,10 @@ class Purchase implements Calculation
 
         $course = $pair->getCourse();
 
-        $paymentPercent = $pair->getIn()->getPaymentSettings()->getPercentPurchase();
-        $paymentConstant = $pair->getIn()->getPaymentSettings()->getConstantPurchase();
-        $exchangePercent = $pair->getOut()->getPaymentSettings()->getPercentPurchase();
-        $exchangeConstant = $pair->getOut()->getPaymentSettings()->getConstantPurchase();
+        $paymentPercent = $pair->getIn()->getPercentPurchase();
+        $paymentConstant = $pair->getIn()->getConstantPurchase();
+        $exchangePercent = $pair->getOut()->getPercentPurchase();
+        $exchangeConstant = $pair->getOut()->getConstantPurchase();
 
         $currencyTmp = $count - ($count * $paymentPercent) / 100 - $paymentConstant;
         $cryptocurrencyTmp = $currencyTmp / $course;
@@ -42,10 +42,10 @@ class Purchase implements Calculation
 
         $course = $pair->getCourse();
 
-        $paymentPercent = $pair->getIn()->getPaymentSettings()->getPercentPurchase();
-        $paymentConstant = $pair->getIn()->getPaymentSettings()->getConstantPurchase();
-        $exchangePercent = $pair->getOut()->getPaymentSettings()->getPercentPurchase();
-        $exchangeConstant = $pair->getOut()->getPaymentSettings()->getConstantPurchase();
+        $paymentPercent = $pair->getIn()->getPercentPurchase();
+        $paymentConstant = $pair->getIn()->getConstantPurchase();
+        $exchangePercent = $pair->getOut()->getPercentPurchase();
+        $exchangeConstant = $pair->getOut()->getConstantPurchase();
 
         $cryptocurrencyTmp = ($count + $exchangeConstant) / (1 - $exchangePercent / 100);
         $currencyTmp = $course * $cryptocurrencyTmp;
