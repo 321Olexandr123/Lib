@@ -21,10 +21,7 @@ abstract class AbstractExchangePair implements ExchangePairInterface
     /**
      * @return float
      */
-    public function getCourse(): float
-    {
-        return $this->getOut()->getExchangeObject()->getSelling() * $this->getIn()->getExchangeObject()->getPurchase();
-    }
+    abstract function getCourse(): float;
 
     /**
      * @return ExtendExchangeInterface
