@@ -11,7 +11,13 @@ interface PaymentSystemInterface
      */
     public function getName(): ?string;
 
+    /**
+     * @return float|null
+     */
     public function getMin(): ?float;
 
+    /**
+     * @return float|null
+     */
     public function getMax(): ?float;
 }
