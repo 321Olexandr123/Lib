@@ -45,4 +45,14 @@ interface ExtendExchangeInterface
      * @return float
      */
     public function getConstantSelling(): float;
+
+    /**
+     * @return float
+     */
+    public function getMin(): ?float;
+
+    /**
+     * @return float
+     */
+    public function getMax(): ?float;
 }
