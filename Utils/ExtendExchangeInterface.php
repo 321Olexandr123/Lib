@@ -49,10 +49,20 @@ interface ExtendExchangeInterface
     /**
      * @return float
      */
-    public function getMin(): ?float;
+    public function getMinPurchase(): ?float;
 
     /**
      * @return float
      */
-    public function getMax(): ?float;
+    public function getMinSelling(): ?float;
+
+    /**
+     * @return float
+     */
+    public function getMaxPurchase(): ?float;
+
+    /**
+     * @return float
+     */
+    public function getMaxSelling(): ?float;
 }
