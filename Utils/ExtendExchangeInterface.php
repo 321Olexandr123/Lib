@@ -22,11 +22,6 @@ interface ExtendExchangeInterface
     public function getType(): string;
 
     /**
-     * @return mixed
-     */
-    public function getProvider();
-
-    /**
      * @return float
      */
     public function getPercentPurchase(): float;
