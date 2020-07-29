@@ -22,10 +22,10 @@ class Selling implements Calculation
         $exchangePercent = $pair->getOut()->getPercentSelling();
         $exchangeConstant = $pair->getOut()->getConstantSelling();
 
-        $cryptocurrencyTmp = $count - ($count * $exchangePercent) / 100 - $exchangeConstant;
+        $cryptocurrencyTmp = $count - ($count * $paymentPercent) / 100 - $paymentConstant;
         $currencyTmp = $cryptocurrencyTmp * $course;
 
-        $result = $currencyTmp * (1 - $paymentPercent / 100) - $paymentConstant;
+        $result = $currencyTmp * (1 - $exchangePercent / 100) - $exchangeConstant;
 
         return $result;
     }
@@ -44,10 +44,10 @@ class Selling implements Calculation
         $exchangePercent = $pair->getOut()->getPercentSelling();
         $exchangeConstant = $pair->getOut()->getConstantSelling();
 
-        $currencyTmp = ($count + $paymentConstant) / (1 - $paymentPercent / 100);
+        $currencyTmp = ($count + $exchangeConstant) / (1 - $exchangePercent / 100);
         $cryptocurrencyTmp = $currencyTmp / $course;
 
-        $result = ($cryptocurrencyTmp + $exchangeConstant) / (1 - $exchangePercent / 100);
+        $result = ($cryptocurrencyTmp + $paymentConstant) / (1 - $paymentPercent / 100);
 
         return $result;
     }
